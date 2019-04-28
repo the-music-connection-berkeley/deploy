@@ -4,26 +4,27 @@
 
 <form method='POST', action='/forms/tutor_submit'>
   <div class="tab">
-    <div class="form-group">
+    <div class="form-group required">
       <label for="question[name]">Name</label>
       <input type="text" name="question[name]" class="form-control" placeholder="ex. First Middle Last">
       <small class="form-text text-muted">Please enter your full name here!</small>
     </div>
-    <div class="form-group">
+    <div class="form-group required">
       <label for="question[phone]">Phone Number</label>
       <input type="tel" name="question[phone]" class="form-control" placeholder="ex. 000-000-0000">
       <small class="form-text text-muted">Please enter your phone number here!</small>
     </div>
-    <div class="form-group">
+    <div class="form-group required">
       <label for="question[email]">Email address</label>
       <input type="email" name="question[email]" class="form-control" placeholder="ex. TMC@gmail.com">
       <small class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div><div class="form-group">
+    </div>
+    <div class="form-group required">
       <label for="question[sid]">SID</label>
       <input type="text" name="question[sid]" class="form-control" placeholder="ex. 3032179600">
       <small class="form-text text-muted">Please enter your SID here!</small>
     </div>
-    <div class="form-group">
+    <div class="form-group required">
       <label for="question[year]">Year</label>
       <input type="text" name="question[year]" class="form-control" placeholder="ex. Sophomore, Junior">
       <small class="form-text text-muted">Please enter your year here!</small>
@@ -39,7 +40,7 @@
       <small class="form-text text-muted">Please enter your minor(s) here!</small>
     </div>
 
-    <div class="form-group">
+    <div class="form-group required">
       <label for="question[experiences]">Experiences</label>
       <input type="text" name="question[experiences]" class="form-control" placeholder="ex. Dead Musician's Society">
       <small class="form-text text-muted">If you have any involvement with other musical group, please write them down here!</small>
@@ -54,7 +55,7 @@
   </div>
 
   <div class="tab">
-    <div class="form-group radio-group" id="jump-group0">
+    <div class="form-group radio-group required" id="jump-group0">
       <label for="question[in_class]">In Class</label> <br>
       <input type="radio" name="question[in_class]" value="Yes" id="InClass_Yes">      Yes
       <input type="radio" name="question[in_class]" value="No" id="InClass_No">      No <br>
@@ -63,7 +64,7 @@
   </div>
 
   <div class="tab">
-    <div class="form-group dropdown-group">
+    <div class="form-group dropdown-group required">
       <div id="instruments">
         <label>Instrument</label>
         <div class="instrument">
@@ -93,7 +94,7 @@
       <input type="checkbox" name="question[time2]" value="1" id="Mondays 5PM ~ 6PM">      Mondays 5PM ~ 6PM  <br>
       <small class="form-text text-muted">Please enter the time ranges you can tutor</small>
     </div>
-    <div class="form-group">
+    <div class="form-group required">
       <label>Preferred Grade Levels</label><br>
       <input type="checkbox" name="question[grade0]" value="1" id="Grade 3~5">      Grade 3~5   <br>
       <input type="checkbox" name="question[grade1]" value="1" id="Grade 6~8">      Grade 6~8  <br>
@@ -103,7 +104,7 @@
   </div>
 
   <div class="tab">
-    <div class="form-group radio-group" id="jump-group1">
+    <div class="form-group radio-group required" id="jump-group1">
       <label>Private Piano or Vocal?</label> <br>
       <input type="radio" name="question[private]" value="Yes" id="Private_Yes">      Yes
       <input type="radio" name="question[private]" value="No" id="Private_No">      No <br>
@@ -112,7 +113,7 @@
   </div>
 
   <div class="tab">
-    <div class="form-group">
+    <div class="form-group required">
       <label>Piano or Vocal?</label><br>
       <input type="checkbox" name="question[piano]" value="1" id="Piano">      Piano  <br>
       <input type="checkbox" name="question[piano]" value="0" id="Vocal">      Vocal  <br>
@@ -125,7 +126,7 @@
       <input type="checkbox" name="question[time2]" value="1" id="Mondays">      Mondays 5PM ~ 6PM  <br>
       <small class="form-text text-muted">Please enter the time ranges you can tutor</small>
     </div>
-    <div class="form-group">
+    <div class="form-group checkbox-group">
       <label>Preferred Grade Levels</label><br>
       <input type="checkbox" name="question[grade0]" value="1">      Grade 3~5   <br>
       <input type="checkbox" name="question[grade1]" value="1">      Grade 6~8  <br>
@@ -148,7 +149,7 @@
       <input type="checkbox" name="question[policy]" value="1">      I have read and agree to the policy.  <br>
       <small class="form-text text-muted">This is mandatory.</small>
     </div>
-    <div class="form-group">
+    <div class="form-group checkbox-group required">
       <label>Attendance Policy</label><br>
       <input type="checkbox" name="question[policy]" value="1">      I have read and agree to the policy.  <br>
       <small class="form-text text-muted">This is mandatory.</small>
@@ -156,7 +157,7 @@
   </div>
 
   <div class="tab">
-    <div class="form-group" id="jump-group2">
+    <div class="form-group radio-group required" id="jump-group2">
       <label>Returning or New</label><br>
       <input type="radio" name="question[returning]" value="Returning">      Returning  <br>
       <input type="radio" name="question[returning]" value="New">      New  <br>
@@ -165,7 +166,7 @@
   </div>
 
   <div class="tab" id="return_q">
-    <div class="form-group">
+    <div class="form-group radio-group required">
       <label>Prefer to work with previous student or class?</label><br>
       <input type="radio" name="question[prev_again]" value="Yes">      Yes  <br>
       <input type="radio" name="question[prev_again]" value="No">      No  <br>
@@ -175,17 +176,17 @@
 
   <div class="tab">
     <h4>Public Service Center Volunteer Questions</h4>
-    <div class="form-group">
+    <div class="form-group required">
       <label for="question[name]">PSC Q1</label>
       <input type="text" name="question[name]" class="form-control" placeholder="ex. First Middle Last">
       <small class="form-text text-muted">Please enter your full name here!</small>
     </div>
-    <div class="form-group">
+    <div class="form-group required">
       <label for="question[email]">PSC Q2</label>
       <input type="email" name="question[email]" class="form-control" placeholder="ex. TMC@gmail.com">
       <small class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
-    <div class="form-group">
+    <div class="form-group required">
       <label for="question[sid]">PSC Q3</label>
       <input type="text" name="question[sid]" class="form-control" placeholder="ex. 3032179600">
       <small class="form-text text-muted">Please enter your SID here!</small>

@@ -4,28 +4,28 @@
 
 <form method='POST', action='/forms/parent_submit'>
   <div class="tab">
-    <div class="form-group">
+    <div class="form-group required">
       <label for="name">Student Name</label>
       <input type="text" name="question[name]" class="form-control" placeholder="ex. First Middle Last">
       <small class="form-text text-muted">Please enter your full name here!</small>
     </div>
-    <div class="form-group">
+    <div class="form-group required">
       <label for="phone">Phone Number</label>
       <input type="tel" name="question[phone]" class="form-control" placeholder="ex. 000-000-0000">
       <small class="form-text text-muted">Please enter your phone number here!</small>
     </div>
-    <div class="form-group">
+    <div class="form-group required">
       <label for="email">Email address</label>
       <input type="text" name="question[email]" class="form-control" placeholder="ex. TMC@gmail.com">
       <small class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
-    <div class="form-group">
+    <div class="form-group required">
       <label for="address">Address</label>
       <input type="text" name="question[address]" class="form-control" placeholder="123 Street, Berkeley, CA 94704">
     </div>
   </div>
   <div class="tab">
-    <div class="form-group">
+    <div class="form-group dropdown-group required">
       <label for="piano">Home Piano?</label>
       <select class="form-control" name="question[piano]">
         <option>No</option>
@@ -35,7 +35,7 @@
     </div>
   </div>
   <div class="tab">
-    <div class="form-group">
+    <div class="form-group dropdown-group required">
       <label for="grade">Grade Level select</label>
       <select class="form-control" name="question[grade]">
         <option>9</option>
@@ -46,7 +46,7 @@
     </div>
   </div>
   <div class="tab">
-      <div class="form-group">
+      <div class="form-group dropdown-group required">
         <label>Instrument</label>
         <select class="form-control" name="question[instrument]" id="instrument">
           <option value="Violin">Violin</option>
@@ -60,14 +60,14 @@
       </div>
   </div>
   <div class="tab">
-      <div class="form-group">
+      <div class="form-group required">
         <label for="extra">Experiences</label>
         <input type="text" name="question[experiences]" class="form-control" placeholder="ex. Dead Musician's Society">
         <small class="form-text text-muted">If you have any involvement with other musical group, please write them down here!</small>
       </div>
   </div>
   <div class="tab">
-      <div class="form-group">
+      <div class="form-group dropdown-group required">
         <label>Applied to TMC before?</label>
         <select class="form-control" name="question[pastapp]">
           <option>No</option>
@@ -76,7 +76,7 @@
       </div>
   </div>
   <div class="tab">
-      <div class="form-group">
+      <div class="form-group dropdown-group required">
         <label for="lunch">Do you qualify for free/reduced lunch?</label>
         <select class="form-control" name="question[lunch]">
           <option>No</option>
