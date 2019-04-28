@@ -6,7 +6,7 @@ class FormsController < ApplicationController
   def teacher
   end
 
-  def parent_student
+  def parent
   end
 
   def tutor
@@ -36,7 +36,7 @@ class FormsController < ApplicationController
     render 'thank_you'
   end
 
-  def student_submit
+  def parent_submit
     name = params[:question][:name]
     phone = params[:question][:phone]
     email = params[:question][:email]
@@ -47,12 +47,12 @@ class FormsController < ApplicationController
     experiences = params[:question][:experiences]
     pastapp = params[:question][:pastapp]
     lunch = params[:question][:lunch]
-    student = Student.new
-    student.attributes = {name: name, phone: phone,
+    parent = Parent.new
+    parent.attributes = {name: name, phone: phone,
       email: email, address: address, piano: piano,
       grade: grade, instruments: instruments, experiences: experiences,
     pastapp: pastapp, lunch: lunch}
-    student.save!
+    parent.save!
     render 'thank_you'
   end
 

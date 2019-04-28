@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20190410043642) do
 
-  create_table "students", force: :cascade do |t|
+  create_table "parents", force: :cascade do |t|
     t.string   "name"
     t.string   "phone"
     t.string   "email"
