@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :tutors
   resources :teachers
-  resources :students
+  resources :parents
   get 'forms/teacher'
 
   post 'forms/teacher' => 'forms#teacher'
@@ -22,9 +22,9 @@ Rails.application.routes.draw do
 
   post 'forms/teacher_submit' => 'forms#teacher_submit'
   post 'forms/tutor_submit' => 'forms#tutor_submit'
-  post 'forms/student_submit' => 'forms#student_submit'
+  post 'forms/parent_submit' => 'forms#parent_submit'
 
-  get 'forms/parent_student'
+  get 'forms/parent'
 
   get 'forms/tutor'
 
