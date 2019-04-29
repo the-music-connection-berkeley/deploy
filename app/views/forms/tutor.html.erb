@@ -81,13 +81,38 @@
       Remove Instrument
     </button>
     </div>
-      <div class="form-group checkbox-group">
-        <label>Time Availability (In class)/label><br>
-        <input type="checkbox" name="question[time0]" value="1" id="Mondays 2PM ~ 3PM">      Mondays 2PM ~ 3PM   <br>
-        <input type="checkbox" name="question[time1]" value="1" id="Tuesday 2PM ~ 3PM">      Tuesday 2PM ~ 3PM  <br>
-        <input type="checkbox" name="question[time2]" value="1" id="Mondays 5PM ~ 6PM">      Mondays 5PM ~ 6PM  <br>
-        <small class="form-text text-muted">Please enter the time ranges you can tutor</small>
+
+    <div class="form-group dropdown-group">
+      <div id="time-groups">
+        <label>Time Availability (Class)</label>
+        <div class="time-group row">
+          <div class="col-md-4" id="day_of_week">
+            <select class="form-control" name="question[time]">
+              <option disabled selected value> -- Day of the Week -- </option>
+              <option value="Monday">Monday</option>
+              <option value="Tuesday">Tuesday</option>
+              <option value="Wednesday">Wednesday</option>
+              <option value="Thursday">Thursday</option>
+              <option value="Friday" >Friday</option>
+            </select>
+          </div>
+          <div class="col-md-4" id="start_time">
+            <input class="form-control" name="question[start_time]" type="time" value="13:45:00" id="example-time-input">
+          </div>
+          <div class="col-md-4" id="end_time">
+            <input class="form-control" name="question[end_time]" type="time" value="15:45:00" id="example-time-input">
+          </div>
+        </div>
       </div>
+      <button type="button" class="btn btn-primary btn-sm" id="add_time">
+        Add More Time Availability
+      </button>
+      <button type="button" class="btn btn-primary btn-sm" id="rem_time">
+        Remove Time Availability
+      </button>
+      <small class="form-text text-muted">Select the time you are requesting.</small>
+    </div>
+
       <div class="form-group">
         <label>Preferred Grade Levels</label><br>
         <input type="checkbox" name="question[grade0]" value="1" id="Grade 3~5">      Grade 3~5   <br>
@@ -113,13 +138,38 @@
       <input type="checkbox" name="question[piano]" value="0" id="Vocal">      Vocal  <br>
       <small class="form-text text-muted">Select if you are doing private piano or vocal tutoring.</small>
     </div>
-    <div class="form-group">
-      <label>Time Availability (Private class)</label><br>
-      <input type="checkbox" name="question[time0]" value="1" id="Monday">      Mondays 2PM ~ 3PM   <br>
-      <input type="checkbox" name="question[time1]" value="1" id="Tuesday">      Tuesday 2PM ~ 3PM  <br>
-      <input type="checkbox" name="question[time2]" value="1" id="Mondays">      Mondays 5PM ~ 6PM  <br>
-      <small class="form-text text-muted">Please enter the time ranges you can tutor</small>
+
+    <div class="form-group dropdown-group">
+      <div id="time-groups">
+        <label>Time Availability (Private)</label>
+        <div class="time-group row">
+          <div class="col-md-4" id="day_of_week">
+            <select class="form-control" name="question[time]">
+              <option disabled selected value> -- Day of the Week -- </option>
+              <option value="Monday">Monday</option>
+              <option value="Tuesday">Tuesday</option>
+              <option value="Wednesday">Wednesday</option>
+              <option value="Thursday">Thursday</option>
+              <option value="Friday">Friday</option>
+            </select>
+          </div>
+          <div class="col-md-4" id="start_time">
+            <input class="form-control" name="question[start_time]" type="time" value="13:45:00" id="example-time-input">
+          </div>
+          <div class="col-md-4" id="end_time">
+            <input class="form-control" name="question[end_time]" type="time" value="15:45:00" id="example-time-input">
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary btn-sm" id="add_time">
+        Add More Time Availability
+      </button>
+      <button type="button" class="btn btn-primary btn-sm" id="rem_time">
+        Remove Time Availability
+      </button>
+      <small class="form-text text-muted">Select the time you are requesting.</small>
     </div>
+
     <div class="form-group checkbox-group">
       <label>Preferred Grade Levels</label><br>
       <input type="checkbox" name="question[grade0]" value="1">      Grade 3~5   <br>
