@@ -103,6 +103,15 @@ function init() {
       }
     }
   }
+  var jump_group3 = document.getElementById("jump-group3");
+  if (jump_group3 != null) {
+    var radios = jump_group3.getElementsByTagName('input');
+    for (var i = 0; i < radios.length; i++) {
+      radios[i].onclick = function() {
+        jump = 2;
+      }
+    }
+  }
 }
 
 function checkEnter(e){
