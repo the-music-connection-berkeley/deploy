@@ -46,6 +46,38 @@
       <input type="text" name="question[experiences]" class="form-control" placeholder="ex. Dead Musician's Society">
       <small class="form-text text-muted">If you have any involvement with other musical group, please write them down here!</small>
     </div>
+
+    <div class="form-group dropdown-group">
+      <div id="time-groups">
+        <label>Time Availability</label>
+        <div class="time-group row">
+          <div class="col-md-4" id="day_of_week">
+            <select class="form-control" name="question[time]">
+              <option disabled selected value> -- Day of the Week -- </option>
+              <option value="Monday">Monday</option>
+              <option value="Tuesday">Tuesday</option>
+              <option value="Wednesday">Wednesday</option>
+              <option value="Thursday">Thursday</option>
+              <option value="Friday">Friday</option>
+            </select>
+          </div>
+          <div class="col-md-4" id="start_time">
+            <input class="form-control" name="question[start_time]" type="time" value="13:45:00" id="example-time-input">
+          </div>
+          <div class="col-md-4" id="end_time">
+            <input class="form-control" name="question[end_time]" type="time" value="15:45:00" id="example-time-input">
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary btn-sm" id="add_time">
+        Add More Time Availability
+      </button>
+      <button type="button" class="btn btn-primary btn-sm" id="rem_time">
+        Remove Time Availability
+      </button>
+      <small class="form-text text-muted">Select the time you are requesting.</small>
+    </div>
+
   </div>
 
   <div class="tab">
@@ -82,37 +114,6 @@
     </button>
     </div>
 
-    <div class="form-group dropdown-group">
-      <div id="time-groups">
-        <label>Time Availability (Class)</label>
-        <div class="time-group row">
-          <div class="col-md-4" id="day_of_week">
-            <select class="form-control" name="question[time]">
-              <option disabled selected value> -- Day of the Week -- </option>
-              <option value="Monday">Monday</option>
-              <option value="Tuesday">Tuesday</option>
-              <option value="Wednesday">Wednesday</option>
-              <option value="Thursday">Thursday</option>
-              <option value="Friday" >Friday</option>
-            </select>
-          </div>
-          <div class="col-md-4" id="start_time">
-            <input class="form-control" name="question[start_time]" type="time" value="13:45:00" id="example-time-input">
-          </div>
-          <div class="col-md-4" id="end_time">
-            <input class="form-control" name="question[end_time]" type="time" value="15:45:00" id="example-time-input">
-          </div>
-        </div>
-      </div>
-      <button type="button" class="btn btn-primary btn-sm" id="add_time">
-        Add More Time Availability
-      </button>
-      <button type="button" class="btn btn-primary btn-sm" id="rem_time">
-        Remove Time Availability
-      </button>
-      <small class="form-text text-muted">Select the time you are requesting.</small>
-    </div>
-
       <div class="form-group">
         <label>Preferred Grade Levels</label><br>
         <input type="checkbox" name="question[grade0]" value="1" id="Grade 3~5">      Grade 3~5   <br>
@@ -137,37 +138,6 @@
       <input type="checkbox" name="question[piano]" value="1" id="Piano">      Piano  <br>
       <input type="checkbox" name="question[piano]" value="0" id="Vocal">      Vocal  <br>
       <small class="form-text text-muted">Select if you are doing private piano or vocal tutoring.</small>
-    </div>
-
-    <div class="form-group dropdown-group">
-      <div id="time-groups">
-        <label>Time Availability (Private)</label>
-        <div class="time-group row">
-          <div class="col-md-4" id="day_of_week">
-            <select class="form-control" name="question[time]">
-              <option disabled selected value> -- Day of the Week -- </option>
-              <option value="Monday">Monday</option>
-              <option value="Tuesday">Tuesday</option>
-              <option value="Wednesday">Wednesday</option>
-              <option value="Thursday">Thursday</option>
-              <option value="Friday">Friday</option>
-            </select>
-          </div>
-          <div class="col-md-4" id="start_time">
-            <input class="form-control" name="question[start_time]" type="time" value="13:45:00" id="example-time-input">
-          </div>
-          <div class="col-md-4" id="end_time">
-            <input class="form-control" name="question[end_time]" type="time" value="15:45:00" id="example-time-input">
-          </div>
-        </div>
-      </div>
-      <button type="button" class="btn btn-primary btn-sm" id="add_time">
-        Add More Time Availability
-      </button>
-      <button type="button" class="btn btn-primary btn-sm" id="rem_time">
-        Remove Time Availability
-      </button>
-      <small class="form-text text-muted">Select the time you are requesting.</small>
     </div>
 
     <div class="form-group checkbox-group">
