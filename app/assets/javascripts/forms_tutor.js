@@ -62,56 +62,6 @@ function init() {
       document.getElementById("rem_instr").style.display = "none";
     }
   });
-
-  //tab navigation listener
-  var jump_group0 = document.getElementById("jump-group0");
-  if (jump_group0 != null) {
-    var radios = jump_group0.getElementsByTagName('input');
-    for (var i = 0; i < radios.length; i++) {
-      radios[i].onclick = function() {
-        if (this.value == "Yes") {
-          jump = 1;
-        } else {
-          jump = 2;
-        }
-      }
-    }
-  }
-  var jump_group1 = document.getElementById("jump-group1");
-  if (jump_group1 != null) {
-    var radios = jump_group1.getElementsByTagName('input');
-    for (var i = 0; i < radios.length; i++) {
-      radios[i].onclick = function() {
-        if (this.value == "Yes") {
-          jump = 1;
-        } else {
-          jump = 2;
-        }
-      }
-    }
-  }
-  var jump_group2 = document.getElementById("jump-group2");
-  if (jump_group2 != null) {
-    var radios = jump_group2.getElementsByTagName('input');
-    for (var i = 0; i < radios.length; i++) {
-      radios[i].onclick = function() {
-        if (this.value == "Returning") {
-          jump = 1;
-        } else {
-          jump = 2;
-        }
-      }
-    }
-  }
-  var jump_group3 = document.getElementById("jump-group3");
-  if (jump_group3 != null) {
-    var radios = jump_group3.getElementsByTagName('input');
-    for (var i = 0; i < radios.length; i++) {
-      radios[i].onclick = function() {
-        jump = 2;
-      }
-    }
-  }
 }
 
 function checkEnter(e){
@@ -131,7 +81,6 @@ function display_other(elem) {
 }
 
 function show_tab(n) {
-  jump = 1;
   var tabs = document.getElementsByClassName("tab");
   tabs[n].style.display = "block";
   if (n == 0) {
@@ -161,11 +110,41 @@ function next() {
   var tabs = document.getElementsByClassName("tab");
   tabs[cur_tab].style.display = "none";
   array.push(cur_tab);
+  //tab navigation listener
+  var jump_group0 = tabs[cur_tab].querySelector("#jump-group0");
+  if (jump_group0 != null) {
+    var radios = jump_group0.getElementsByTagName('input');
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].value == "No" && radios[i].checked) {
+        jump = 2;
+      }
+    }
+  }
+  var jump_group1 = tabs[cur_tab].querySelector("#jump-group1");
+  if (jump_group1 != null) {
+    var radios = jump_group1.getElementsByTagName('input');
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].value == "No" && radios[i].checked) {
+        jump = 2;
+      }
+    }
+  }
+  var jump_group2 = tabs[cur_tab].querySelector("#jump-group2");
+  if (jump_group2 != null) {
+    var radios = jump_group2.getElementsByTagName('input');
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].value == "New" && radios[i].checked) {
+        jump = 2;
+      }
+    }
+  }
   cur_tab = cur_tab + jump;
+  jump = 1;
   show_tab(cur_tab);
 }
 
 function validate_form() {
+  return true;
   var tab = document.getElementsByClassName("tab")[cur_tab];
   var form_groups = tab.getElementsByClassName("form-group");
   var valid = true;
