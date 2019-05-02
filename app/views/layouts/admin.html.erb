@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Page</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<br>
+<div class="row">
+  <a href='/' >
+    <div class="container logo">
+        <%= image_tag "logo.png", :class => 'logo', :width=> "10%", :height => "5%" %>
+    </div>
+  </a>
+  <a href="/admin"><h3>Admin Page</h3></a>
+</div>
+
+<div class="container">
+    <%= yield %>
+</div>
+</body>
+</html>

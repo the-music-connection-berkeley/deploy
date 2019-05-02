@@ -1,0 +1,35 @@
+{<img src="https://api.codeclimate.com/v1/badges/436f927ae47cc9b250c5/maintainability" />}[https://codeclimate.com/github/the-music-connection-berkeley/root/maintainability]
+
+{<img src="https://api.codeclimate.com/v1/badges/436f927ae47cc9b250c5/test_coverage" />}[https://codeclimate.com/github/the-music-connection-berkeley/root/test_coverage]
+
+{<img src="https://travis-ci.org/the-music-connection-berkeley/root.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/the-music-connection-berkeley/root]
+
+
+
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.

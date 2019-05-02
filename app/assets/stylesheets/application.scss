@@ -1,0 +1,49 @@
+@import "bootstrap";
+
+.pacifico {
+  font-family: 'Pacifico', cursive;
+}
+
+
+.tab:not(:first-child) {
+  display: none;
+}
+
+
+.hero-img {
+  background: url(background-original.jpg);
+  height: 40vw;
+  background-position: 0 -21vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+
+.radio-group.invalid {
+  background-color: pink;
+}
+
+.invalid {
+  background-color: #ffdddd;
+}
+
+.btn-xl {
+    padding: 10px 20px;
+    font-size: 35px;
+    width:75%;    //Specify your width here
+}
+
+.btn-group {
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  display: block; /* Make the buttons appear below each other */
+}
+
+.bg {
+    background: url(background-original.jpg) no-repeat center center fixed;
+    -webkit-background-size: 100% auto;
+    -moz-background-size: 100% auto;
+    -o-background-size: 100% auto;
+     background-size: 100% auto;
+}

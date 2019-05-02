@@ -1,0 +1,127 @@
+<div class="container pt-3">
+  <div class="row title">
+    <h1>Parent Form</h1>
+  </div>
+
+  <form method='POST', action='/forms/parent_submit'>
+    <div class="tab">
+      <div class="form-group required">
+        <label for="name">Student Name</label>
+        <input type="text" name="question[name]" class="form-control" placeholder="ex. First Middle Last">
+        <small class="form-text text-muted">Please enter your full name here!</small>
+      </div>
+      <div class="form-group required">
+        <label for="phone">Phone Number</label>
+        <input type="tel" name="question[phone]" class="form-control" placeholder="ex. 000-000-0000">
+        <small class="form-text text-muted">Please enter your phone number here!</small>
+      </div>
+      <div class="form-group required">
+        <label for="email">Email address</label>
+        <input type="text" name="question[email]" class="form-control" placeholder="ex. TMC@gmail.com">
+        <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group required">
+        <label for="address">Address</label>
+        <input type="text" name="question[address]" class="form-control" placeholder="123 Street, Berkeley, CA 94704">
+      </div>
+      <div class="form-group dropdown-group required">
+        <label for="grade">Grade Level</label>
+        <select class="form-control" name="question[grade]">
+          <option>9</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+        </select>
+      </div>
+      <div class="form-group dropdown-group">
+        <div id="time-groups">
+          <label>Time Availability</label>
+          <div class="time-group row">
+            <div class="col-md-4" id="day_of_week">
+              <select class="form-control" name="question[time]">
+                <option disabled selected value> -- Day of the Week -- </option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+              </select>
+            </div>
+            <div class="col-md-4" id="start_time">
+              <input class="form-control" name="question[start_time]" type="time" value="13:45:00" id="example-time-input">
+            </div>
+            <div class="col-md-4" id="end_time">
+              <input class="form-control" name="question[end_time]" type="time" value="15:45:00" id="example-time-input">
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm" id="add_time">
+          Add More Time Availability
+        </button>
+        <button type="button" class="btn btn-primary btn-sm" id="rem_time">
+          Remove Time Availability
+        </button>
+        <small class="form-text text-muted">Select the time you are requesting.</small>
+      </div>
+
+    </div>
+    <div class="tab">
+      <div class="form-group dropdown-group required">
+        <label for="piano">Do you own a piano at home?</label>
+        <select class="form-control" name="question[piano]">
+          <option>No</option>
+          <option>Yes</option>
+        </select>
+      </div>
+
+      <div class="form-group dropdown-group required">
+        <label>Instrument</label>
+        <select class="form-control" name="question[instrument]" id="instrument">
+          <option value="Violin">Violin</option>
+          <option value="Cello">Cello</option>
+          <option value="Guitar">Guitar</option>
+          <option value="Piano">Piano</option>
+          <option value="Others" >Others</option>
+        </select>
+        <input class="form-control" type="text" id="instr_other" style="display:none;" name="question[instrument]" placeholder="Specify instrument">
+        <small class="form-text text-muted">Select an instrument your child would like to be tutored for.</small>
+      </div>
+
+      <div class="form-group dropdown-group required">
+        <label for="extra">Experiences</label>
+        <select class="form-control" name="question[instrument]" id="instrument">
+          <option value="6 month"> < 6 months </option>
+          <option value="1 year"> 1 year</option>
+          <option value="2 years"> 2 years </option>
+          <option value="3 years"> 3 years </option>
+          <option value="4+ years" > 4+ years </option>
+        </select>
+        <input class="form-control" type="text" id="instr_other" style="display:none;" name="question[instrument]" placeholder="Specify instrument">
+        <small class="form-text text-muted">If you have any involvement with other musical group, please write them down here!</small>
+      </div>
+
+      <div class="form-group dropdown-group required">
+        <label>Have you applied to TMC before?</label>
+        <select class="form-control" name="question[pastapp]">
+          <option>No</option>
+          <option>Yes</option>
+        </select>
+      </div>
+      <div class="form-group dropdown-group required">
+        <label for="lunch">Do you qualify for free/reduced lunch?</label>
+        <select class="form-control" name="question[lunch]">
+          <option>No</option>
+          <option>Yes</option>
+        </select>
+      </div>
+    </div>
+
+      <button type="button" id="prev_btn" class="btn btn-primary">Prev</button>
+      <button type="button" id="next_btn" class="btn btn-primary">Next</button>
+      <button type="submit" id="sub_btn" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+
+<%= javascript_include_tag('forms.js') %>
+<%= javascript_include_tag('forms_parent.js') %>
