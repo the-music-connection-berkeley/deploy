@@ -16,6 +16,7 @@ engines:
     enabled: true
     exclude_paths:
       - "spec/"
+      - "app/assets/"
     config:
       languages:
         ruby:
@@ -36,3 +37,4 @@ exclude_paths:
 - config/
 - db/
 - vendor/
+- app/assets/
