@@ -41,9 +41,16 @@
       <small class="form-text text-muted">Please enter your minor(s) here!</small>
     </div>
 
-    <div class="form-group required">
-      <label for="question[experiences]">Experiences</label>
-      <input type="text" name="question[experiences]" class="form-control" placeholder="ex. Dead Musician's Society">
+    <div class="form-group dropdown-group required">
+      <label for="extra">Experiences</label>
+      <select class="form-control" name="question[instrument]" id="instrument">
+        <option value="6 month"> < 6 months </option>
+        <option value="1 year"> 1 year</option>
+        <option value="2 years"> 2 years </option>
+        <option value="3 years"> 3 years </option>
+        <option value="4+ years" > 4+ years </option>
+      </select>
+      <input class="form-control" type="text" id="instr_other" style="display:none;" name="question[instrument]" placeholder="Specify instrument">
       <small class="form-text text-muted">If you have any involvement with other musical group, please write them down here!</small>
     </div>
 
