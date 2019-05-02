@@ -1,6 +1,6 @@
 env:
   global:
-    - CC_TEST_REPORTER_ID=9f2381d981dcfeb9bfd4b183f30f392119e47889cfb4c1ed77277b49571a4930
+    - CC_TEST_REPORTER_ID=9a546c8a6f32931d1dc2fdbe50f8759370f3b3b93690c98597aa655ec5d7d2dc
 language: ruby
 rvm: 2.4.5
 before_install: gem install bundler -v 1.17.3
