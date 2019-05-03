@@ -1,5 +1,19 @@
 @import "bootstrap";
 
+
+
+.navbar {
+  display: none;
+}
+
+.green-underline {
+  text-decoration: underline green;
+}
+.red-underline {
+  text-decoration: underline red;
+}
+
+
 .pacifico {
   font-family: 'Pacifico', cursive;
 }
@@ -12,13 +26,36 @@
 
 .hero-img {
   background: url(background-original.jpg);
-  height: 40vw;
-  background-position: 0 -21vw;
+  height: 77vw;
+  background-position: -148px -17vw;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  opacity: .9;
+  text-align: center;
+  color: white;
 }
 
+.motto {
+  color: white;
+  padding: 28%;
+  padding-top: 24%;
+  padding-bottom: 0;
+  position: relative;
+  left: 15vw;
+  bottom: 3vw;
+}
+
+#scroll_btn {
+  background-color: black;
+  height: 39px;
+  margin: 0 17vw;
+  border-radius: 21px;
+  padding-top:3px;
+  color: white;
+  border-color: black;
+  width: 10vw;
+}
 
 .radio-group.invalid {
   background-color: pink;

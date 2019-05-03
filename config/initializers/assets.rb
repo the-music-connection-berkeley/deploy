@@ -6,7 +6,8 @@ Rails.application.config.assets.precompile += %w( forms.js )
 Rails.application.config.assets.precompile += %w( forms_parent.js )
 Rails.application.config.assets.precompile += %w( forms_teacher.js )
 Rails.application.config.assets.precompile += %w( forms_tutor.js )
-
+Rails.application.config.assets.precompile += %w( forms.css )
+Rails.application.config.assets.precompile += %w( index.js )
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 
