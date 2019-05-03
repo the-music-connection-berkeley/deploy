@@ -1,11 +1,12 @@
 //global variables
 var cur_tab = 0;
 var array = new Array(); //history of the page traversal
-var jump = 1;
+var jump = 1; //unit of traversal of question flow
 show_tab(cur_tab);
 
 init();
 function init() {
+  //Event Listener for prev, next, and submit
   var prev_btn = document.getElementById("prev_btn");
   var next_btn = document.getElementById("next_btn");
   prev_btn.addEventListener('click', function(){
@@ -24,6 +25,8 @@ function init() {
       return true;
     }
   }, true);
+
+  //Event Listener for adding/removing instruments
   document.getElementById("rem_instr").style.display = "none";
   var instrument = document.getElementsByClassName("instrument")[0];
   if (instrument != null) {
@@ -63,6 +66,7 @@ function init() {
     }
   });
 
+  //Event Listener for adding/removing time availability
   var add_time = document.getElementById("add_time");
   add_time.addEventListener('click', function() {
     var original = document.getElementsByClassName("time-group")[0];
@@ -84,6 +88,7 @@ function init() {
   });
 }
 
+//Displays the 'other' text field for custom instrument
 function display_other(elem) {
   var other = elem.getElementsByClassName("instr_other")[0];
   var val = elem.getElementsByTagName("select")[0].value;
@@ -94,12 +99,14 @@ function display_other(elem) {
   }
 }
 
+//prevents submission through pressing 'Enter' key
 function checkEnter(e){
  e = e || event;
  var txtArea = /textarea/i.test((e.target || e.srcElement).tagName);
  return txtArea || (e.keyCode || e.which || e.charCode || 0) !== 13;
 }
 
+// Selectively show nth tab and hide others
 function show_tab(n) {
   var tabs = document.getElementsByClassName("tab");
   tabs[n].style.display = "block";
@@ -158,12 +165,12 @@ function next() {
       }
     }
   }
-
   cur_tab = cur_tab + jump;
   jump = 1;
   show_tab(cur_tab);
 }
 
+// Form validation
 function validate_form() {
   return true;
   var tab = document.getElementsByClassName("tab")[cur_tab];
