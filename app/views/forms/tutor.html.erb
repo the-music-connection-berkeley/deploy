@@ -43,22 +43,14 @@
 
     <div class="form-group dropdown-group required">
       <label for="extra">Experiences</label>
-<<<<<<< HEAD
-      <select class="form-control" name="question[instrument]" id="instrument">
-=======
       <select class="form-control" name="question[exp]">
->>>>>>> d5744120287e65ed0e4dd152a2354e9fdb6ea4c1
         <option value="6 month"> < 6 months </option>
         <option value="1 year"> 1 year</option>
         <option value="2 years"> 2 years </option>
         <option value="3 years"> 3 years </option>
         <option value="4+ years" > 4+ years </option>
       </select>
-<<<<<<< HEAD
-      <input class="form-control" type="text" id="instr_other" style="display:none;" name="question[instrument]" placeholder="Specify instrument">
-=======
->>>>>>> d5744120287e65ed0e4dd152a2354e9fdb6ea4c1
-      <small class="form-text text-muted">If you have any involvement with other musical group, please write them down here!</small>
+      <small class="form-text text-muted">Please enter the number of experience with your instrument!</small>
     </div>
 
     <div class="form-group dropdown-group">
@@ -118,8 +110,8 @@
           </select>
           <input class="form-control instr_other" type="text" style="display:none;" name="question[instrument]" placeholder="Specify instrument">
         </div>
-      <small class="form-text text-muted">Select the instruments you are requesting.</small>
     </div>
+    <small class="form-text text-muted">Select the instruments you are requesting.</small>
     <button type="button" class="btn btn-primary btn-sm" id="add_instr">
       Add Instrument
     </button>
@@ -208,20 +200,6 @@
     <div class="tab">
       <h4>Public Service Center Volunteer Questions</h4>
       <div class="form-group required">
-<<<<<<< HEAD
-        <label for="question[name]">PSC Q1</label>
-        <input type="text" name="question[name]" class="form-control" placeholder="ex. First Middle Last">
-        <small class="form-text text-muted">Please enter your full name here!</small>
-      </div>
-      <div class="form-group required">
-        <label for="question[email]">PSC Q2</label>
-        <input type="email" name="question[email]" class="form-control" placeholder="ex. TMC@gmail.com">
-        <small class="form-text text-muted">We'll never share your email with anyone else.</small>
-      </div>
-      <div class="form-group required">
-        <label for="question[sid]">PSC Q3</label>
-        <input type="text" name="question[sid]" class="form-control" placeholder="ex. 3032179600">
-=======
         <label for="question[volunteer]">PSC Q1</label>
         <input type="text" name="question[volunteer]" class="form-control" placeholder="ex. First Middle Last">
         <small class="form-text text-muted">Please enter your full name here!</small>
@@ -234,7 +212,6 @@
       <div class="form-group required">
         <label for="question[sid2]">PSC Q3</label>
         <input type="text" name="question[sid2]" class="form-control" placeholder="ex. 3032179600">
->>>>>>> d5744120287e65ed0e4dd152a2354e9fdb6ea4c1
         <small class="form-text text-muted">Please enter your SID here!</small>
       </div>
   </div>
@@ -261,3 +238,4 @@
   <button type="button" id="next">next</button>
 </div> -->
 <%= javascript_include_tag('forms_tutor.js') %>
+<%= javascript_include_tag('forms.js') %>

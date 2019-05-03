@@ -1,30 +1,25 @@
-//global variables
-var cur_tab = 0;
-var jump = 1;
-var array = new Array(); //history of the page traversal
-show_tab(cur_tab);
 
-init();
-function init() {
-  var prev_btn = document.getElementById("prev_btn");
-  var next_btn = document.getElementById("next_btn");
-  prev_btn.addEventListener('click', function(){
-    prev();
-  });
-  next_btn.addEventListener('click', function(){
-    next();
-  });
-  var form = document.querySelector('form')
-  form.onkeypress = checkEnter;
-  form.addEventListener('submit', function(event) {
-    if (!validate_form()) {
-      event.preventDefault();
-      return false;
-    } else {
-      return true;
+tutor_init();
+function tutor_init() {
+  document.getElementById("rem_time").style.display = "none";
+  var add_time = document.getElementById("add_time");
+  add_time.addEventListener('click', function() {
+    var original = document.getElementsByClassName("time-group")[0];
+    var cln = original.cloneNode(true);
+    document.getElementById("time-groups").appendChild(cln);
+    if (document.getElementsByClassName("time-group").length > 1) {
+      document.getElementById("rem_time").style.display = "inline-block";
     }
-  }, true);
-
+  });
+  var rem_time = document.getElementById("rem_time");
+  rem_time.addEventListener('click', function () {
+    var len = document.getElementsByClassName("time-group").length;
+    var elem = document.getElementsByClassName("time-group")[len - 1];
+    document.getElementById("time-groups").removeChild(elem);
+    if (document.getElementsByClassName("time-group").length <= 1) {
+      document.getElementById("rem_time").style.display = "none";
+    }
+  });
   document.getElementById("rem_instr").style.display = "none";
   var instrument = document.getElementsByClassName("instrument")[0];
   if (instrument != null) {
