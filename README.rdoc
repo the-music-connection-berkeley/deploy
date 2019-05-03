@@ -1,8 +1,8 @@
-{<img src="https://api.codeclimate.com/v1/badges/436f927ae47cc9b250c5/maintainability" />}[https://codeclimate.com/github/the-music-connection-berkeley/root/maintainability]
+{<img src="https://api.codeclimate.com/v1/badges/436f927ae47cc9b250c5/maintainability" />}[https://codeclimate.com/github/the-music-connection-berkeley/deploy/maintainability]
 
-{<img src="https://api.codeclimate.com/v1/badges/436f927ae47cc9b250c5/test_coverage" />}[https://codeclimate.com/github/the-music-connection-berkeley/root/test_coverage]
+{<img src="https://api.codeclimate.com/v1/badges/436f927ae47cc9b250c5/test_coverage" />}[https://codeclimate.com/github/the-music-connection-berkeley/deploy/test_coverage]
 
-{<img src="https://travis-ci.org/the-music-connection-berkeley/root.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/the-music-connection-berkeley/root]
+{<img src="https://travis-ci.org/the-music-connection-berkeley/deploy.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/the-music-connection-berkeley/deploy]
 
 
 
