@@ -1,6 +1,7 @@
 //global variables
 var cur_tab = 0;
 var array = new Array(); //history of the page traversal
+var jump = 1;
 show_tab(cur_tab);
 
 init();
@@ -129,7 +130,37 @@ function next() {
   var tabs = document.getElementsByClassName("tab");
   tabs[cur_tab].style.display = "none";
   array.push(cur_tab);
-  cur_tab = cur_tab + 1;
+  //tab navigation listener
+  var jump_group0 = tabs[cur_tab].querySelector("#jump-group0");
+  if (jump_group0 != null) {
+    var radios = jump_group0.getElementsByTagName('input');
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].value == "No" && radios[i].checked) {
+        jump = 2;
+      }
+    }
+  }
+  var jump_group1 = tabs[cur_tab].querySelector("#jump-group1");
+  if (jump_group1 != null) {
+    var radios = jump_group1.getElementsByTagName('input');
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].value == "No" && radios[i].checked) {
+        jump = 2;
+      }
+    }
+  }
+  var jump_group2 = tabs[cur_tab].querySelector("#jump-group2");
+  if (jump_group2 != null) {
+    var radios = jump_group2.getElementsByTagName('input');
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].value == "New" && radios[i].checked) {
+        jump = 2;
+      }
+    }
+  }
+
+  cur_tab = cur_tab + jump;
+  jump = 1;
   show_tab(cur_tab);
 }
 
