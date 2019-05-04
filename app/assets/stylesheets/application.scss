@@ -1,5 +1,8 @@
 @import "bootstrap";
 
+body {
+    background-color: #f5f5dc;
+}
 
 
 .navbar {
@@ -15,7 +18,15 @@
 
 
 .pacifico {
-  font-family: 'Pacifico', cursive;
+  position: relative;
+  top: 50px;
+  font-family: 'Lobster', cursive;
+  margin-bottom: 8vw;
+  font-size: 5vw;
+}
+
+.lobster {
+  font-family: 'Lobster';
 }
 
 
@@ -47,14 +58,16 @@
 }
 
 #scroll_btn {
-  background-color: black;
+  background-color: transparent;
   height: 39px;
-  margin: 0 17vw;
+  margin: 0 15vw;
   border-radius: 21px;
   padding-top:3px;
   color: white;
-  border-color: black;
-  width: 10vw;
+  border-color: transparent;
+  width: 18vw;
+  font-size: 2vw;
+  font-weight:600;
 }
 
 .radio-group.invalid {
