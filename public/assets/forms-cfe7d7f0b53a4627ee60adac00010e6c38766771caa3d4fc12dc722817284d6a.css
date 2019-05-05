@@ -1,0 +1,14 @@
+/* line 4, /Users/scalated/Desktop/deploy/app/assets/stylesheets/forms.scss */
+.navbar {
+  display: flex;
+}
+
+/* line 8, /Users/scalated/Desktop/deploy/app/assets/stylesheets/forms.scss */
+.invalid {
+  background-color: #ffdddd;
+}
+
+/* line 12, /Users/scalated/Desktop/deploy/app/assets/stylesheets/forms.scss */
+.radio-group {
+  background-color: pink;
+}
