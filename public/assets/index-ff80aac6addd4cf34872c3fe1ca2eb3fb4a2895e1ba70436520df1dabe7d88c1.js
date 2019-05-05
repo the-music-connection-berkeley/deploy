@@ -1,1 +1,0 @@
-function init(){document.getElementById("scroll_btn").addEventListener("click",function(){document.querySelector(".row").scrollIntoView({behavior:"smooth"})})}window.onload=init;
