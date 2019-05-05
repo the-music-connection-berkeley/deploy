@@ -43,7 +43,7 @@
 
     <div class="form-group dropdown-group required">
       <label for="extra">Experiences</label>
-      <select class="form-control" name="question[exp]">
+      <select class="form-control" name="question[experiences]">
         <option value="6 month"> < 6 months </option>
         <option value="1 year"> 1 year</option>
         <option value="2 years"> 2 years </option>
@@ -58,7 +58,7 @@
         <label>Time Availability</label>
         <div class="time-group row">
           <div class="col-md-4" id="day_of_week">
-            <select class="form-control" name="question[time]">
+            <select class="form-control" name="question[time_availavility]">
               <option disabled selected value> -- Day of the Week -- </option>
               <option value="Monday">Monday</option>
               <option value="Tuesday">Tuesday</option>
@@ -83,7 +83,13 @@
       </button>
       <small class="form-text text-muted">Select the time you are requesting.</small>
     </div>
-
+    <div class="form-group">
+      <label>Preferred Grade Levels</label><br>
+      <input type="checkbox" name="question[grade0]" value="1" id="Grade 3~5">      Grade 3~5   <br>
+      <input type="checkbox" name="question[grade1]" value="1" id="Grade 6~8">      Grade 6~8  <br>
+      <input type="checkbox" name="question[grade2]" value="1" id="Grade 9-11">      Grade 9-11  <br>
+      <small class="form-text text-muted">Please enter the time ranges you can tutor</small>
+    </div>
   </div>
 
   <div class="tab">
@@ -100,7 +106,7 @@
       <div id="instruments">
         <label>Instrument</label>
         <div class="instrument">
-          <select class="form-control" name="question[instrument]">
+          <select class="form-control" name="question[instruments]">
             <option disabled selected value> -- select an option -- </option>
             <option value="Violin">Violin</option>
             <option value="Cello">Cello</option>
@@ -119,14 +125,6 @@
       Remove Instrument
     </button>
     </div>
-
-      <div class="form-group">
-        <label>Preferred Grade Levels</label><br>
-        <input type="checkbox" name="question[grade0]" value="1" id="Grade 3~5">      Grade 3~5   <br>
-        <input type="checkbox" name="question[grade1]" value="1" id="Grade 6~8">      Grade 6~8  <br>
-        <input type="checkbox" name="question[grade2]" value="1" id="Grade 9-11">      Grade 9-11  <br>
-        <small class="form-text text-muted">Please enter the time ranges you can tutor</small>
-      </div>
     </div>
 
   <div class="tab">
@@ -138,22 +136,6 @@
     </div>
   </div>
 
-  <div class="tab">
-    <div class="form-group required">
-      <label>Piano or Vocal?</label><br>
-      <input type="checkbox" name="question[piano]" value="1" id="Piano">      Piano  <br>
-      <input type="checkbox" name="question[piano]" value="0" id="Vocal">      Vocal  <br>
-      <small class="form-text text-muted">Select if you are doing private piano or vocal tutoring.</small>
-    </div>
-
-    <div class="form-group checkbox-group">
-      <label>Preferred Grade Levels</label><br>
-      <input type="checkbox" name="question[grade0]" value="1">      Grade 3~5   <br>
-      <input type="checkbox" name="question[grade1]" value="1">      Grade 6~8  <br>
-      <input type="checkbox" name="question[grade2]" value="1">      Grade 9-11  <br>
-      <small class="form-text text-muted">Please enter the time ranges you can tutor</small>
-    </div>
-  </div>
 
   <div class="tab">
     <div>
