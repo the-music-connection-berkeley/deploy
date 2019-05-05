@@ -5,8 +5,9 @@ class CreateParents < ActiveRecord::Migration
       t.string :phone
       t.string :email
       t.string :address
-      t.string :piano
       t.string :grade
+      t.string :piano_home
+      t.string :time_availability
       t.string :instruments
       t.string :experiences
       t.string :pastapp
