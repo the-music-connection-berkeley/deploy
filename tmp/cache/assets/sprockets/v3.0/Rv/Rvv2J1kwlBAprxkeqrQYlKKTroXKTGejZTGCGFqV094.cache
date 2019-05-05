@@ -1,0 +1,27 @@
+I"Q(function() {
+  var nextQuestion, prevQuestion;
+
+  prevQuestion = function() {
+    return console.log("previous question");
+  };
+
+  nextQuestion = function() {
+    return console.log("next question");
+  };
+
+  window.onload = function() {
+    var next, prev;
+    console.log("hello");
+    prev = document.getElementById("prev");
+    next = document.getElementById("next");
+    if (prev) {
+      prev.addEventListener('click', prevQuestion);
+      console.log("added addEventListener");
+    }
+    if (next) {
+      return next.addEventListener('click', nextQuestion);
+    }
+  };
+
+}).call(this);
+:ET

@@ -1,0 +1,23 @@
+I"Y(function() {
+  document.onload = function() {
+    var next, nextButton, nextQuestion, prev, prevQuestion;
+    console.log("hello");
+    prev = document.getElementById("prev");
+    next = document.getElementById("next");
+    console.log(prev);
+    if (prev) {
+      prev.addEventListener('click', prevQuestion);
+    }
+    if (next) {
+      next.addEventListener('click', nextQuestion);
+    }
+    nextButton = prevQuestion = function() {
+      return console.log("previous question");
+    };
+    return nextQuestion = function() {
+      return console.log("next question");
+    };
+  };
+
+}).call(this);
+:ET
