@@ -50,7 +50,7 @@
         <option value="3 years"> 3 years </option>
         <option value="4+ years" > 4+ years </option>
       </select>
-      <small class="form-text text-muted">If you have any involvement with other musical group, please write them down here!</small>
+      <small class="form-text text-muted">Please enter the number of experience with your instrument!</small>
     </div>
 
     <div class="form-group dropdown-group">
@@ -110,8 +110,8 @@
           </select>
           <input class="form-control instr_other" type="text" style="display:none;" name="question[instrument]" placeholder="Specify instrument">
         </div>
-      <small class="form-text text-muted">Select the instruments you are requesting.</small>
     </div>
+    <small class="form-text text-muted">Select the instruments you are requesting.</small>
     <button type="button" class="btn btn-primary btn-sm" id="add_instr">
       Add Instrument
     </button>
@@ -184,36 +184,36 @@
       <small class="form-text text-muted">Select Yes if you are a returning tutor.</small>
     </div>
   </div>
-  <div class="tab" id="jump-group3">
+  <div class="tab" id="return_q">
     <div class="form-group radio-group required">
       <label>Prefer to work with previous student or class?</label><br>
       <input type="radio" name="question[prev_again]" value="Yes">      Yes  <br>
       <input type="radio" name="question[prev_again]" value="No">      No  <br>
       <small class="form-text text-muted">Select Yes if you want to be matched up with previous student or class.</small>
     </div>
-      <div class="form-group">
-        <label for="question[preference]">Preferred Student/Class</label>
-        <input type="text" name="question[preference]" class="form-control">
-        <small class="form-text text-muted">Please write down the name of the student or class.</small>
-      </div>
+    <div class="form-group">
+      <label for="question[preference]">Preferred Student/Class</label>
+      <input type="text" name="question[preference]" class="form-control">
+      <small class="form-text text-muted">Please write down the name of the student or class.</small>
     </div>
-    <div class="tab">
-      <h4>Public Service Center Volunteer Questions</h4>
-      <div class="form-group required">
-        <label for="question[volunteer]">PSC Q1</label>
-        <input type="text" name="question[volunteer]" class="form-control" placeholder="ex. First Middle Last">
-        <small class="form-text text-muted">Please enter your full name here!</small>
-      </div>
-      <div class="form-group required">
-        <label for="question[volEmail]">PSC Q2</label>
-        <input type="email" name="question[volEmail]" class="form-control" placeholder="ex. TMC@gmail.com">
-        <small class="form-text text-muted">We'll never share your email with anyone else.</small>
-      </div>
-      <div class="form-group required">
-        <label for="question[sid2]">PSC Q3</label>
-        <input type="text" name="question[sid2]" class="form-control" placeholder="ex. 3032179600">
-        <small class="form-text text-muted">Please enter your SID here!</small>
-      </div>
+  </div>
+  <div class="tab">
+    <h4>Public Service Center Volunteer Questions</h4>
+    <div class="form-group required">
+      <label for="question[volunteer]">PSC Q1</label>
+      <input type="text" name="question[volunteer]" class="form-control" placeholder="ex. First Middle Last">
+      <small class="form-text text-muted">Please enter your full name here!</small>
+    </div>
+    <div class="form-group required">
+      <label for="question[volEmail]">PSC Q2</label>
+      <input type="email" name="question[volEmail]" class="form-control" placeholder="ex. TMC@gmail.com">
+      <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group required">
+      <label for="question[sid2]">PSC Q3</label>
+      <input type="text" name="question[sid2]" class="form-control" placeholder="ex. 3032179600">
+      <small class="form-text text-muted">Please enter your SID here!</small>
+    </div>
   </div>
   <div class="tab">
     <div class="form-group">
@@ -237,4 +237,5 @@
   <button type="button" id="prev">prev</button>
   <button type="button" id="next">next</button>
 </div> -->
-<%= javascript_include_tag('forms_tutor.js') %>
+<%= javascript_include_tag('forms.js') %>
+<%= stylesheet_link_tag    'forms', media: 'all', 'data-turbolinks-track' => true %>
