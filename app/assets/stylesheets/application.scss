@@ -4,6 +4,38 @@ body {
     background-color: #f5f5dc;
 }
 
+.motto {
+  text-align: right;
+}
+
+.motto h1{
+  font-size: 4vw;
+}
+
+.typewriter::after {
+  content: '';
+  height:24px;
+  width:5px;
+  display: inline-block;
+  background-color: white;
+  animation-name:blink;
+  animation-duration:.5s;
+  animation-iteration-count: infinite;
+}
+
+
+/* The typewriter cursor effect */
+@keyframes blink {
+  0% {
+    opacity:1;
+  }
+  50% {
+    opacity:0;
+  }
+  100% {
+    opacity:0;
+  }
+}
 
 .navbar {
   display: none;
@@ -53,7 +85,7 @@ body {
   padding-top: 24%;
   padding-bottom: 0;
   position: relative;
-  left: 15vw;
+  left: 7vw;
   bottom: 3vw;
 }
 
