@@ -62,6 +62,7 @@ end
 group :test do
   gem 'rspec-rails'
   gem 'guard-rspec'
+  gem 'factory_girl_rails'
   gem 'simplecov', :require => false
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels' # basic imperative step defs
