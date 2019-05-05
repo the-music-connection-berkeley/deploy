@@ -28,8 +28,7 @@ class FormsController < ApplicationController
     teacher = Teacher.new
     teacher.attributes = {name: name, phone: phone,
       email: email, class_name: class_name, school_name: school_name,
-      grade: grade, time_availavility: time_availavility, start_date: start_date,
-    end_date: end_date, instruments: instruments, comment: comment}
+      grade: grade, time_availability: time_availability, instruments: instruments, comment: comment}
     teacher.save!
     render 'thank_you'
   end
@@ -48,8 +47,8 @@ class FormsController < ApplicationController
     lunch = params[:question][:lunch]
     parent = Parent.new
     parent.attributes = {name: name, phone: phone,
-      email: email, address: address, piano: piano,
-      grade: grade, instruments: instruments, experiences: experiences,
+      email: email, address: address, grade: grade, time_availability: time_availability, piano_home: piano_home,
+      instruments: instruments, experiences: experiences,
     pastapp: pastapp, lunch: lunch}
     parent.save!
     render 'thank_you'
@@ -78,10 +77,10 @@ class FormsController < ApplicationController
     tutor = Tutor.new
     tutor.attributes = {name: name, phone: phone,
       email: email, sid: sid, year: year,
-      major: major, minor: minor, experiences: experiences,
-    in_class: in_class, instruments: instruments, time_availavility: time_availavility,
-   preferred_grade: preferred_grade, private: private, piano: piano, returning: returning,
-   prev_again: prev_again, interview_time: interview_time}
+      major: major, minor: minor, experiences: experiences, time_availability: time_availability,
+    preferred_grade: preferred_grade, in_class: in_class, instruments: instruments, 
+    private: private, piano_vocal: piano_vocal, returning: returning,
+   prev_again: prev_again, preffered_student_class: preffered_student_class, comment: comment}
     tutor.save!
     render 'thank_you'
   end
