@@ -1,4 +1,4 @@
-{<img src="https://api.codeclimate.com/v1/badges/436f927ae47cc9b250c5/maintainability" />}[https://codeclimate.com/github/the-music-connection-berkeley/deploy/maintainability]
+{<img src="https://api.codeclimate.com/v1/badges/7a97fcae7e575bcffaef/maintainability" />}[https://codeclimate.com/github/the-music-connection-berkeley/deploy/maintainability]
 
 {<img src="https://api.codeclimate.com/v1/badges/436f927ae47cc9b250c5/test_coverage" />}[https://codeclimate.com/github/the-music-connection-berkeley/deploy/test_coverage]
 
