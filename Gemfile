@@ -26,7 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # for secure stoage of API keys
 gem 'figaro'
 gem 'pusher'
-gem 'pg', '~> 0.20' # use PostgreSQL in production (Heroku)
+gem 'pg'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
