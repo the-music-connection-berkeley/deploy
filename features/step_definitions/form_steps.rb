@@ -12,7 +12,6 @@ end
 When /^(?:|I )fill in "([^"]*)" for "([^"]*)"$/ do |value, field|
   case field
 
-
   when /^Email/
     field = "question[email]"
   when /^Name/
@@ -31,7 +30,7 @@ When /^(?:|I )fill in "([^"]*)" for "([^"]*)"$/ do |value, field|
     field = "question[exp]"
   end
 
-  fill_in(field, :with => value)
+  fill_in field, with: value
 end
 
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
@@ -55,7 +54,22 @@ When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
     field = "question[minor]"
   when /^Experiences/
     field = "question[exp]"
+  when /^Preferred Student/
+    field = "question[preference]"
   end
 
-  fill_in(field, :with => value)
+  fill_in field, with: value
+end
+
+When /^(?:|I )select "([^"]*)" from "([^"]*)"$/ do |value, field|
+  case field
+
+  when /^Experiences/
+    field = "question[exp]"
+  when /^Time Availability/
+    field = "question[time]"
+  when /^Instrument/
+    field = "question[instrument]"
+  end
+  select(value, :from => field)
 end
