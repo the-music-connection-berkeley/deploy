@@ -58,7 +58,7 @@
         <label>Time Availability</label>
         <div class="time-group row">
           <div class="col-md-4" id="day_of_week">
-            <select class="form-control" name="question[time_availavility]">
+            <select class="form-control" name="question[time_availability]">
               <option disabled selected value> -- Day of the Week -- </option>
               <option value="Monday">Monday</option>
               <option value="Tuesday">Tuesday</option>
@@ -83,13 +83,7 @@
       </button>
       <small class="form-text text-muted">Select the time you are requesting.</small>
     </div>
-    <div class="form-group">
-      <label>Preferred Grade Levels</label><br>
-      <input type="checkbox" name="question[grade0]" value="1" id="Grade 3~5">      Grade 3~5   <br>
-      <input type="checkbox" name="question[grade1]" value="1" id="Grade 6~8">      Grade 6~8  <br>
-      <input type="checkbox" name="question[grade2]" value="1" id="Grade 9-11">      Grade 9-11  <br>
-      <small class="form-text text-muted">Please enter the time ranges you can tutor</small>
-    </div>
+
   </div>
 
   <div class="tab">
@@ -105,8 +99,8 @@
     <div class="form-group dropdown-group required">
       <div id="instruments">
         <label>Instrument</label>
-        <div class="instruments">
-          <select class="form-control" name="question[instruments]">
+        <div class="instrument">
+          <select class="form-control" name="question[instrument]">
             <option disabled selected value> -- select an option -- </option>
             <option value="Violin">Violin</option>
             <option value="Cello">Cello</option>
@@ -125,6 +119,14 @@
       Remove Instrument
     </button>
     </div>
+
+      <div class="form-group">
+        <label>Preferred Grade Levels</label><br>
+        <input type="checkbox" name="question[grade0]" value="1" id="Grade 3~5">      Grade 3~5   <br>
+        <input type="checkbox" name="question[grade1]" value="1" id="Grade 6~8">      Grade 6~8  <br>
+        <input type="checkbox" name="question[grade2]" value="1" id="Grade 9-11">      Grade 9-11  <br>
+        <small class="form-text text-muted">Please enter the time ranges you can tutor</small>
+      </div>
     </div>
 
   <div class="tab">
@@ -135,6 +137,7 @@
       <small class="form-text text-muted">Select Yes if you are doing private piano or vocal tutoring.</small>
     </div>
   </div>
+
   <div class="tab">
     <div class="form-group radio-group required">
       <label>Piano or Vocal?</label> <br>
@@ -154,12 +157,12 @@
     </div>
     <div class="form-group checkbox-group required">
       <label>Member Commitment Policy</label><br>
-      <input type="checkbox" name="question[policy]" value="1">      I have read and agree to the policy.  <br>
+      <input type="checkbox" name="question[policy]" value="1" id="Member Commitment Policy">      I have read and agree to the policy.  <br>
       <small class="form-text text-muted">This is mandatory.</small>
     </div>
     <div class="form-group checkbox-group required">
       <label>Attendance Policy</label><br>
-      <input type="checkbox" name="question[policy]" value="1">      I have read and agree to the policy.  <br>
+      <input type="checkbox" name="question[policy]" value="1" id="Attendance Policy">      I have read and agree to the policy.  <br>
       <small class="form-text text-muted">This is mandatory.</small>
     </div>
   </div>
@@ -167,17 +170,16 @@
   <div class="tab">
     <div class="form-group radio-group required" id="jump-group2">
       <label>Returning or New</label><br>
-      <input type="radio" name="question[returning]" value="Returning">      Returning  <br>
-      <input type="radio" name="question[returning]" value="New">      New  <br>
+      <input type="radio" name="question[returning]" value="Returning" id="Returning">      Returning  <br>
+      <input type="radio" name="question[returning]" value="New" id="New">      New  <br>
       <small class="form-text text-muted">Select Yes if you are a returning tutor.</small>
     </div>
   </div>
-
-  <div class="tab">
-    <div class="form-group radio-group required" id="jump-group3">
+  <div class="tab" id="return_q">
+    <div class="form-group radio-group required">
       <label>Prefer to work with previous student or class?</label><br>
-      <input type="radio" name="question[prev_again]" value="Yes">      Yes  <br>
-      <input type="radio" name="question[prev_again]" value="No">      No  <br>
+      <input type="radio" name="question[prev_again]" value="Yes" id="Prefer_Yes">      Yes  <br>
+      <input type="radio" name="question[prev_again]" value="No" id="Prefer_No">      No  <br>
       <small class="form-text text-muted">Select Yes if you want to be matched up with previous student or class.</small>
     </div>
     <div class="form-group">
@@ -186,7 +188,6 @@
       <small class="form-text text-muted">Please write down the name of the student or class.</small>
     </div>
   </div>
-
   <div class="tab">
     <h4>Public Service Center Volunteer Questions</h4>
     <div class="form-group required">
