@@ -1,6 +1,7 @@
 {<img src="https://api.codeclimate.com/v1/badges/7a97fcae7e575bcffaef/maintainability" />}[https://codeclimate.com/github/the-music-connection-berkeley/deploy/maintainability]
+
+
 {<img src="https://api.codeclimate.com/v1/badges/7a97fcae7e575bcffaef/test_coverage" />}[https://codeclimate.com/github/the-music-connection-berkeley/deploy/test_coverage]
+
+
 {<img src="https://travis-ci.org/the-music-connection-berkeley/deploy.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/the-music-connection-berkeley/deploy]
-
-
-<tt>rake doc:app</tt>.
