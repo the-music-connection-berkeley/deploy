@@ -20,13 +20,15 @@ ActiveRecord::Schema.define(version: 20190410043642) do
     t.string   "address"
     t.string   "grade"
     t.string   "piano_home"
-    t.string   "time_availability"
-    t.string   "instruments"
+    t.string   "weekday"
+    t.string   "start_time"
+    t.string   "end_time"
+    t.string   "instrument"
     t.string   "experiences"
     t.string   "pastapp"
     t.string   "lunch"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -36,11 +38,13 @@ ActiveRecord::Schema.define(version: 20190410043642) do
     t.string   "class_name"
     t.string   "school_name"
     t.string   "grade"
-    t.string   "time_availability"
-    t.string   "instruments"
+    t.string   "weekday"
+    t.string   "start_time"
+    t.string   "end_time"
+    t.string   "instrument"
     t.string   "comment"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "tutors", force: :cascade do |t|
@@ -52,10 +56,12 @@ ActiveRecord::Schema.define(version: 20190410043642) do
     t.string   "major"
     t.string   "minor"
     t.string   "experiences"
-    t.string   "time_availability"
+    t.string   "weekday"
+    t.string   "start_time"
+    t.string   "end_time"
     t.string   "preferred_grade"
     t.string   "in_class"
-    t.string   "instruments"
+    t.string   "instrument"
     t.string   "private"
     t.string   "piano_vocal"
     t.string   "returning"
