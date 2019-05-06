@@ -58,7 +58,7 @@
         <label>Time Availability</label>
         <div class="time-group row">
           <div class="col-md-4" id="day_of_week">
-            <select class="form-control" name="question[time_availability]">
+            <select class="form-control" name="question[weekday]">
               <option disabled selected value> -- Day of the Week -- </option>
               <option value="Monday">Monday</option>
               <option value="Tuesday">Tuesday</option>
@@ -68,10 +68,10 @@
             </select>
           </div>
           <div class="col-md-4" id="start_time">
-            <input class="form-control" name="question[start_time]" type="time" value="13:45:00" id="example-time-input">
+            <input class="form-control" name="question[start_time]" type="time" value="13:45" id="example-time-input">
           </div>
           <div class="col-md-4" id="end_time">
-            <input class="form-control" name="question[end_time]" type="time" value="15:45:00" id="example-time-input">
+            <input class="form-control" name="question[end_time]" type="time" value="15:45" id="example-time-input">
           </div>
         </div>
       </div>
@@ -82,6 +82,16 @@
         Remove Time Availability
       </button>
       <small class="form-text text-muted">Select the time you are requesting.</small>
+    </div>
+
+    <div class="form-group dropdown-group required">
+      <label for="preferred_grade">Grade Levels</label>
+      <select class="form-control" name="question[preferred_grade]">
+        <option>Grade 3~5</option>
+        <option>Grade 6~8</option>
+        <option>Grade 9-11</option>
+      </select>
+      <small class="form-text text-muted">Please enter the time ranges you can tutor</small>
     </div>
 
   </div>
@@ -110,24 +120,16 @@
           </select>
           <input class="form-control instr_other" type="text" style="display:none;" name="question[instrument]" placeholder="Specify instrument">
         </div>
-    </div>
-    <small class="form-text text-muted">Select the instruments you are requesting.</small>
-    <button type="button" class="btn btn-primary btn-sm" id="add_instr">
-      Add Instrument
-    </button>
-    <button type="button" class="btn btn-primary btn-sm" id="rem_instr">
-      Remove Instrument
-    </button>
-    </div>
-
-      <div class="form-group">
-        <label>Preferred Grade Levels</label><br>
-        <input type="checkbox" name="question[grade0]" value="1" id="Grade 3~5">      Grade 3~5   <br>
-        <input type="checkbox" name="question[grade1]" value="1" id="Grade 6~8">      Grade 6~8  <br>
-        <input type="checkbox" name="question[grade2]" value="1" id="Grade 9-11">      Grade 9-11  <br>
-        <small class="form-text text-muted">Please enter the time ranges you can tutor</small>
       </div>
+      <button type="button" class="btn btn-primary btn-sm" id="add_instr">
+        Add More Instrument
+      </button>
+      <button type="button" class="btn btn-primary btn-sm" id="rem_instr">
+        Remove Instrument
+      </button>
+      <small class="form-text text-muted">Select the instruments you are requesting.</small>
     </div>
+  </div>
 
   <div class="tab">
     <div class="form-group radio-group required" id="jump-group1">
@@ -183,8 +185,8 @@
       <small class="form-text text-muted">Select Yes if you want to be matched up with previous student or class.</small>
     </div>
     <div class="form-group">
-      <label for="question[prefferd_student_class]">Preferred Student/Class</label>
-      <input type="text" name="question[prefferd_student_class]" class="form-control">
+      <label for="question[preffered_student_class]">Preferred Student/Class</label>
+      <input type="text" name="question[preffered_student_class]" class="form-control">
       <small class="form-text text-muted">Please write down the name of the student or class.</small>
     </div>
   </div>

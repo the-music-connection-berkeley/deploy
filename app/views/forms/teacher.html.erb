@@ -50,7 +50,7 @@
           <label>Class Time</label>
           <div class="time-group row">
             <div class="col-md-4" id="day_of_week">
-              <select class="form-control" name="question[time_availability]">
+              <select class="form-control" name="question[weekday]">
                 <option disabled selected value> -- Day of the Week -- </option>
                 <option value="Monday">Monday</option>
                 <option value="Tuesday">Tuesday</option>
@@ -60,10 +60,10 @@
               </select>
             </div>
             <div class="col-md-4" id="start_time">
-              <input class="form-control" name="question[start_time]" type="time" value="13:45:00" id="example-time-input">
+              <input class="form-control" name="question[start_time]" type="time" value="13:45" id="example-time-input">
             </div>
             <div class="col-md-4" id="end_time">
-              <input class="form-control" name="question[end_time]" type="time" value="15:45:00" id="example-time-input">
+              <input class="form-control" name="question[end_time]" type="time" value="15:45" id="example-time-input">
             </div>
           </div>
         </div>
@@ -78,7 +78,7 @@
 
 
 
-      <div class="form-group dropdown-group">
+      <div class="form-group dropdown-group required">
         <div id="instruments">
           <label>Instrument</label>
           <div class="instrument">

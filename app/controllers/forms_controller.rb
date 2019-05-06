@@ -22,13 +22,15 @@ class FormsController < ApplicationController
     class_name = params[:question][:class_name]
     school_name = params[:question][:school_name]
     grade = params[:question][:grade]
-    time_availability = params[:question][:time_availability]
-    instruments = params[:question][:instruments]
+    weekday = params[:question][:weekday]
+    start_time = params[:question][:start_time]
+    end_time = params[:question][:end_time]
+    instrument = params[:question][:instrument]
     comment = params[:question][:comment]
     teacher = Teacher.new
     teacher.attributes = {name: name, phone: phone,
       email: email, class_name: class_name, school_name: school_name,
-      grade: grade, time_availability: time_availability, instruments: instruments, comment: comment}
+      grade: grade, weekday: weekday, start_time: start_time, end_time: end_time, instrument: instrument, comment: comment}
     teacher.save!
     render 'thank_you'
   end
@@ -39,16 +41,18 @@ class FormsController < ApplicationController
     email = params[:question][:email]
     address = params[:question][:address]
     grade = params[:question][:grade]
-    time_availability = params[:question][:time_availability]
+    weekday = params[:question][:weekday]
+    start_time = params[:question][:start_time]
+    end_time = params[:question][:end_time]
     piano_home = params[:question][:piano_home]
-    instruments = params[:question][:instruments]
+    instrument = params[:question][:instrument]
     experiences = params[:question][:experiences]
     pastapp = params[:question][:pastapp]
     lunch = params[:question][:lunch]
     parent = Parent.new
     parent.attributes = {name: name, phone: phone,
-      email: email, address: address, grade: grade, time_availability: time_availability, piano_home: piano_home,
-      instruments: instruments, experiences: experiences,
+      email: email, address: address, grade: grade, weekday: weekday, start_time: start_time, end_time: end_time, piano_home: piano_home,
+      instrument: instrument, experiences: experiences,
     pastapp: pastapp, lunch: lunch}
     parent.save!
     render 'thank_you'
@@ -63,10 +67,12 @@ class FormsController < ApplicationController
     major = params[:question][:major]
     minor = params[:question][:minor]
     experiences = params[:question][:experiences]
-    time_availability = params[:question][:time_availability]
+    weekday = params[:question][:weekday]
+    start_time = params[:question][:start_time]
+    end_time = params[:question][:end_time]
     preferred_grade = params[:question][:preferred_grade]
     in_class = params[:question][:in_class]
-    instruments = params[:question][:instruments]
+    instrument = params[:question][:instrument]
     private = params[:question][:private]
     piano_vocal = params[:question][:piano_vocal]
     returning = params[:question][:returning]
@@ -77,8 +83,8 @@ class FormsController < ApplicationController
     tutor = Tutor.new
     tutor.attributes = {name: name, phone: phone,
       email: email, sid: sid, year: year,
-      major: major, minor: minor, experiences: experiences, time_availability: time_availability,
-    preferred_grade: preferred_grade, in_class: in_class, instruments: instruments, 
+      major: major, minor: minor, experiences: experiences, weekday: weekday, start_time: start_time, end_time: end_time,
+    preferred_grade: preferred_grade, in_class: in_class, instrument: instrument,
     private: private, piano_vocal: piano_vocal, returning: returning,
    prev_again: prev_again, preffered_student_class: preffered_student_class, comment: comment}
     tutor.save!
