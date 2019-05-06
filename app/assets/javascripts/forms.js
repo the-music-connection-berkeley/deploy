@@ -1,10 +1,12 @@
 //global variables
 var cur_tab = 0;
 var array = new Array(); //history of the page traversal
+var jump = 1; //unit of traversal of question flow
 show_tab(cur_tab);
 
 init();
 function init() {
+  //Event Listener for prev, next, and submit
   var prev_btn = document.getElementById("prev_btn");
   var next_btn = document.getElementById("next_btn");
   prev_btn.addEventListener('click', function(){
@@ -23,14 +25,88 @@ function init() {
       return true;
     }
   }, true);
+
+  //Event Listener for adding/removing instruments
+  document.getElementById("rem_instr").style.display = "none";
+  var instrument = document.getElementsByClassName("instrument")[0];
+  if (instrument != null) {
+    instrument.addEventListener('change', function(){
+      display_other(instrument);
+    });
+  }
+  var add_instr = document.getElementById("add_instr");
+  add_instr.addEventListener('click', function() {
+    var original = document.getElementsByClassName("instrument")[0];
+    var cln = original.cloneNode(true);
+
+    if (cln != null) {
+      cln.addEventListener('change', function(){
+        display_other(cln);
+      });
+    }
+    var other = cln.getElementsByClassName("instr_other")[0];
+    var val = cln.getElementsByTagName("select")[0].value;
+    if (val == "Others") {
+      other.style.display = 'block';
+    } else {
+      other.style.display = 'none';
+    }
+    document.getElementById("instruments").appendChild(cln);
+    if (document.getElementsByClassName("instrument").length > 1) {
+      document.getElementById("rem_instr").style.display = "inline-block";
+    }
+  });
+  var rem_instr = document.getElementById("rem_instr");
+  rem_instr.addEventListener('click', function () {
+    var len = document.getElementsByClassName("instrument").length;
+    var elem = document.getElementsByClassName("instrument")[len - 1];
+    document.getElementById("instruments").removeChild(elem);
+    if (document.getElementsByClassName("instrument").length <= 1) {
+      document.getElementById("rem_instr").style.display = "none";
+    }
+  });
+
+  //Event Listener for adding/removing time availability
+  var add_time = document.getElementById("add_time");
+  add_time.addEventListener('click', function() {
+    var original = document.getElementsByClassName("time-group")[0];
+    var cln = original.cloneNode(true);
+    document.getElementById("time-groups").appendChild(cln);
+    if (document.getElementsByClassName("time-group").length > 1) {
+      document.getElementById("rem_time").style.display = "inline-block";
+    }
+  });
+  document.getElementById("rem_time").style.display = "none";
+  var rem_time = document.getElementById("rem_time");
+  rem_time.addEventListener('click', function () {
+    var len = document.getElementsByClassName("time-group").length;
+    var elem = document.getElementsByClassName("time-group")[len - 1];
+    document.getElementById("time-groups").removeChild(elem);
+    if (document.getElementsByClassName("time-group").length <= 1) {
+      document.getElementById("rem_time").style.display = "none";
+    }
+  });
 }
 
+//Displays the 'other' text field for custom instrument
+function display_other(elem) {
+  var other = elem.getElementsByClassName("instr_other")[0];
+  var val = elem.getElementsByTagName("select")[0].value;
+  if (val == "Others") {
+    other.style.display = 'block';
+  } else {
+    other.style.display = 'none';
+  }
+}
+
+//prevents submission through pressing 'Enter' key
 function checkEnter(e){
  e = e || event;
  var txtArea = /textarea/i.test((e.target || e.srcElement).tagName);
  return txtArea || (e.keyCode || e.which || e.charCode || 0) !== 13;
 }
 
+// Selectively show nth tab and hide others
 function show_tab(n) {
   var tabs = document.getElementsByClassName("tab");
   tabs[n].style.display = "block";
@@ -61,10 +137,44 @@ function next() {
   var tabs = document.getElementsByClassName("tab");
   tabs[cur_tab].style.display = "none";
   array.push(cur_tab);
-  cur_tab = cur_tab + 1;
+  //tab navigation listener
+  var jump_group0 = tabs[cur_tab].querySelector("#jump-group0");
+  if (jump_group0 != null) {
+    var radios = jump_group0.getElementsByTagName('input');
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].value == "No" && radios[i].checked) {
+        jump = 2;
+      }
+    }
+  }
+  var jump_group1 = tabs[cur_tab].querySelector("#jump-group1");
+  if (jump_group1 != null) {
+    var radios = jump_group1.getElementsByTagName('input');
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].value == "No" && radios[i].checked) {
+        jump = 2;
+      }
+    }
+  }
+  var jump_group2 = tabs[cur_tab].querySelector("#jump-group2");
+  if (jump_group2 != null) {
+    var radios = jump_group2.getElementsByTagName('input');
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].value == "New" && radios[i].checked) {
+        jump = 2;
+      }
+    }
+  }
+  var jump_group3 = tabs[cur_tab].querySelector("#jump-group3");
+  if (jump_group3 != null) {
+    jump = 2;
+  }
+  cur_tab = cur_tab + jump;
+  jump = 1;
   show_tab(cur_tab);
 }
 
+// Form validation
 function validate_form() {
   return true;
   var tab = document.getElementsByClassName("tab")[cur_tab];

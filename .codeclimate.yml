@@ -38,3 +38,7 @@ exclude_paths:
 - db/
 - vendor/
 - app/assets/
+- app/controllers/
+- app/helpers/
+- app/models/
+- features/

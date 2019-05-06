@@ -18,14 +18,15 @@ ActiveRecord::Schema.define(version: 20190410043642) do
     t.string   "phone"
     t.string   "email"
     t.string   "address"
-    t.string   "piano"
     t.string   "grade"
+    t.string   "piano_home"
+    t.string   "time_availability"
     t.string   "instruments"
     t.string   "experiences"
     t.string   "pastapp"
     t.string   "lunch"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -35,9 +36,7 @@ ActiveRecord::Schema.define(version: 20190410043642) do
     t.string   "class_name"
     t.string   "school_name"
     t.string   "grade"
-    t.string   "time_availavility"
-    t.string   "start_date"
-    t.string   "end_date"
+    t.string   "time_availability"
     t.string   "instruments"
     t.string   "comment"
     t.datetime "created_at",        null: false
@@ -53,17 +52,18 @@ ActiveRecord::Schema.define(version: 20190410043642) do
     t.string   "major"
     t.string   "minor"
     t.string   "experiences"
+    t.string   "time_availability"
+    t.string   "preferred_grade"
     t.string   "in_class"
     t.string   "instruments"
-    t.string   "time_availavility"
-    t.string   "preferred_grade"
     t.string   "private"
-    t.string   "piano"
+    t.string   "piano_vocal"
     t.string   "returning"
     t.string   "prev_again"
-    t.string   "interview_time"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.string   "preffered_student_class"
+    t.string   "comment"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
 end
