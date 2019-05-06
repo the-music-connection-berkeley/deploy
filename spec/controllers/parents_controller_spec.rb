@@ -19,13 +19,13 @@ describe ParentsController do
       address: "Deadman's Lane",
       grade: '9',
       piano_home: 'Yes',
-      time_availability: "3-5",
-      instruments: 'Piano',
+      weekday: "3-5",
+      start_time: "3-5",
+      end_time: "3-5",
+      instrument: 'Piano',
       experiences: '6 months',
       pastapp: 'Yes',
-      lunch: 'Yes',
-      created_at: 'false',
-      updated_at: 'false'}
+      lunch: 'Yes'}
       expect(Parent.count).to eql (1)
     end
   end
