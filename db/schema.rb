@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190410043642) do
+ActiveRecord::Schema.define(version: 20190507051338) do
+
+  create_table "availabilities", force: :cascade do |t|
+    t.string "weekday"
+    t.string "start_time"
+    t.string "end_time"
+  end
 
   create_table "parents", force: :cascade do |t|
     t.string   "name"
@@ -20,15 +26,14 @@ ActiveRecord::Schema.define(version: 20190410043642) do
     t.string   "address"
     t.string   "grade"
     t.string   "piano_home"
-    t.string   "weekday"
-    t.string   "start_time"
-    t.string   "end_time"
+    t.integer  "availability"
     t.string   "instrument"
     t.string   "experiences"
     t.string   "pastapp"
     t.string   "lunch"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "number_of_matches"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -38,13 +43,12 @@ ActiveRecord::Schema.define(version: 20190410043642) do
     t.string   "class_name"
     t.string   "school_name"
     t.string   "grade"
-    t.string   "weekday"
-    t.string   "start_time"
-    t.string   "end_time"
+    t.integer  "availability"
     t.string   "instrument"
     t.string   "comment"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "number_of_matches"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "tutors", force: :cascade do |t|
@@ -56,9 +60,7 @@ ActiveRecord::Schema.define(version: 20190410043642) do
     t.string   "major"
     t.string   "minor"
     t.string   "experiences"
-    t.string   "weekday"
-    t.string   "start_time"
-    t.string   "end_time"
+    t.integer  "availability"
     t.string   "preferred_grade"
     t.string   "in_class"
     t.string   "instrument"
@@ -68,6 +70,7 @@ ActiveRecord::Schema.define(version: 20190410043642) do
     t.string   "prev_again"
     t.string   "preffered_student_class"
     t.string   "comment"
+    t.integer  "number_of_matches"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end

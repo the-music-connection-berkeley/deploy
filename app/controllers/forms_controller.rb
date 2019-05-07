@@ -27,10 +27,24 @@ class FormsController < ApplicationController
     end_time = params[:question][:end_time]
     instrument = params[:question][:instrument]
     comment = params[:question][:comment]
+    number_of_matches = 0
+    times = []
+    byebug
+
+    weekday = weekday.split("&")
+    start_time = start_time.split("&")
+    end_time = end_time.split("&")
+    for i in 1..weekday.count do
+      availability = Availability.new
+      availability.attributes = {weekday: weekday[i], start_time: start_time[i], end_time: end_time[i]}
+      availability.save!
+      times.push(availability.id)
+    end
     teacher = Teacher.new
     teacher.attributes = {name: name, phone: phone,
       email: email, class_name: class_name, school_name: school_name,
-      grade: grade, weekday: weekday, start_time: start_time, end_time: end_time, instrument: instrument, comment: comment}
+      grade: grade, availability: times, instrument: instrument, comment: comment,
+      number_of_matches: number_of_matches}
     teacher.save!
     render 'thank_you'
   end
@@ -49,11 +63,12 @@ class FormsController < ApplicationController
     experiences = params[:question][:experiences]
     pastapp = params[:question][:pastapp]
     lunch = params[:question][:lunch]
+    number_of_matches = 0
     parent = Parent.new
     parent.attributes = {name: name, phone: phone,
       email: email, address: address, grade: grade, weekday: weekday, start_time: start_time, end_time: end_time, piano_home: piano_home,
       instrument: instrument, experiences: experiences,
-    pastapp: pastapp, lunch: lunch}
+    pastapp: pastapp, lunch: lunch, number_of_matches: number_of_matches}
     parent.save!
     render 'thank_you'
   end
@@ -79,14 +94,15 @@ class FormsController < ApplicationController
     prev_again = params[:question][:prev_again]
     preffered_student_class = params[:question][:preffered_student_class]
     comment = params[:question][:comment]
-
+    number_of_matches = 0
     tutor = Tutor.new
     tutor.attributes = {name: name, phone: phone,
       email: email, sid: sid, year: year,
       major: major, minor: minor, experiences: experiences, weekday: weekday, start_time: start_time, end_time: end_time,
     preferred_grade: preferred_grade, in_class: in_class, instrument: instrument,
     private: private, piano_vocal: piano_vocal, returning: returning,
-   prev_again: prev_again, preffered_student_class: preffered_student_class, comment: comment}
+    prev_again: prev_again, preffered_student_class: preffered_student_class, comment: comment,
+    number_of_matches: number_of_matches}
     tutor.save!
     render 'thank_you'
   end

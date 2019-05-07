@@ -9,9 +9,7 @@ class CreateTutors < ActiveRecord::Migration
       t.string :major
       t.string :minor
       t.string :experiences
-      t.string :weekday
-      t.string :start_time
-      t.string :end_time
+      t.integer :availability
       t.string :preferred_grade
       t.string :in_class
       t.string :instrument
@@ -21,6 +19,7 @@ class CreateTutors < ActiveRecord::Migration
       t.string :prev_again
       t.string :preffered_student_class
       t.string :comment
+      t.integer :number_of_matches
       t.timestamps null: false
     end
   end

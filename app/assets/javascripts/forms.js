@@ -2,6 +2,7 @@
 var cur_tab = 0;
 var array = new Array(); //history of the page traversal
 var jump = 1; //unit of traversal of question flow
+var time_count = 0;
 show_tab(cur_tab);
 
 init();
