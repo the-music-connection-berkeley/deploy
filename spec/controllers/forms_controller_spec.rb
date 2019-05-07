@@ -24,4 +24,11 @@ describe FormsController do
       expect(response.status).to eq(200)
     end
   end
+  describe "POST teacher_submit" do
+    it "successfully submits" do
+      expect(post :teacher_submit, :params => {:question => {
+        teacher_name: "name"
+        }}).to change(Teacher, :count).by(-1)
+    end
+  end
 end
