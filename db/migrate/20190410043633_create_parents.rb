@@ -7,7 +7,7 @@ class CreateParents < ActiveRecord::Migration
       t.string :address
       t.string :grade
       t.string :piano_home
-      t.integer :availabilities
+      t.string :availabilities
       t.string :instrument
       t.string :experiences
       t.string :pastapp
