@@ -1,23 +1,31 @@
 class Matcher
     def initialize
-
     end
-    def match_teacher_tutor
+
+    def match
         teachers = Teacher.all
         tutors = Tutor.all
+        parents = Parent.all
 
-        teachers.each do |teacher|
-            instrument = teacher.instruments
-            filtered_tutors = tutors.where(instruments: instruments)
-            filtered_tutors.each do |tutor|
-                if time_matches?(tutor.time_availability, teacher.time_availability)
-                    match = new MatchRecord(tutor: tutor, other: teacher)
-                    match.save!
-                    Tutor.remove(tutor)
-                    Teacher.remove(teacher)
-                    break
-                end
+        tutors.each do |tutor|
+          if tutor.private == "yes":
+            if tutor.piano_vocal == "vocal":
+              match(tutor, parents, "vocal")
+            elsif tutor.piano_vocal == "piano":
+              match(tutor, parents, "piano")
             end
+          end
+          if tutor.in_class = "yes":
+            tutor.instruments.each do |instrument|
+              match(tutor, teachers, instrument)
+            end
+          end
+      end
+
+    def match(tutor, tutees, instrument)
+      tutees.each do |tutee|
+        if instrument in tutee.instruments && time_matches?(tutor, tutee)
+            tutor.number_of_matches += 1
         end
     end
 
