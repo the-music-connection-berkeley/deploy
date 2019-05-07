@@ -7,8 +7,10 @@ class CreateParents < ActiveRecord::Migration
       t.string :address
       t.string :grade
       t.string :piano_home
-      t.string :time_availability
-      t.string :instruments
+      t.string :weekday
+      t.string :start_time
+      t.string :end_time
+      t.string :instrument
       t.string :experiences
       t.string :pastapp
       t.string :lunch
