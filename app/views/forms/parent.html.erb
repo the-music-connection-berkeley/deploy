@@ -49,10 +49,10 @@
               </select>
             </div>
             <div class="col-md-4" id="start_time">
-              <input class="form-control" name="question[start_time]" type="time" value="13:45:00" id="example-time-input">
+              <input class="form-control" name="question[start_time]" type="time" value="13:00:00" id="example-time-input" step="1800" onkeydown="return false">
             </div>
             <div class="col-md-4" id="end_time">
-              <input class="form-control" name="question[end_time]" type="time" value="15:45:00" id="example-time-input">
+              <input class="form-control" name="question[end_time]" type="time" value="15:00:00" id="example-time-input" step="1800" onkeydown="return false">
             </div>
           </div>
         </div>
@@ -81,11 +81,8 @@
           <div class="instruments">
             <select class="form-control" name="question[instruments]">
               <option disabled selected value> -- select an option -- </option>
-              <option value="Violin">Violin</option>
-              <option value="Cello">Cello</option>
-              <option value="Guitar">Guitar</option>
               <option value="Piano">Piano</option>
-              <option value="Others" >Others</option>
+              <option value="Vocal" >Vocal</option>
             </select>
             <input class="form-control instr_other" type="text" style="display:none;" name="question[instruments]" placeholder="Specify instrument">
           </div>
