@@ -8,10 +8,12 @@ FactoryGirl.define do
     major 'CS'
     minor 'CS'
     experiences '6 months'
-    time_availability "3-5"
+    weekday "Monday"
+    start_time "3"
+    end_time "5"
     preferred_grade '7~9'
     in_class 'Yes'
-    instruments 'Piano'
+    instrument 'Piano'
     private 'Yes'
     piano_vocal 'Piano'
     returning 'Yes'
