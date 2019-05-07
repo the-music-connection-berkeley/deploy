@@ -20,14 +20,19 @@ test: &test
   <<: *default
   database: db/test.sqlite3
 
+# production:
+#   <<: *default
+#   database: db/production.sqlite3
+
 production:
   adapter: postgresql
   encoding: unicode
-  database: blog_development
+  database: d82nh30a5qgl56
   pool: 5
-  username: root
-  password: root
-  host: localhost
+  username: rwlcscrdeluwrt
+  password: 98533d172c6e78b95ce69e14335c54d4ac000df4b884b06c03dd5cd429a638ef
+  host: ec2-54-197-232-203.compute-1.amazonaws.com
+  port: 5432
 
 cucumber:
   <<: *test

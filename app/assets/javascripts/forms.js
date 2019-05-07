@@ -165,10 +165,6 @@ function next() {
       }
     }
   }
-  var jump_group3 = tabs[cur_tab].querySelector("#jump-group3");
-  if (jump_group3 != null) {
-    jump = 2;
-  }
   cur_tab = cur_tab + jump;
   jump = 1;
   show_tab(cur_tab);
