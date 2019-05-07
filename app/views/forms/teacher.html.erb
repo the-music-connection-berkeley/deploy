@@ -50,7 +50,7 @@
           <label>Class Time</label>
           <div class="time-group row">
             <div class="col-md-4" id="day_of_week">
-              <select class="form-control" name="question[time]">
+              <select class="form-control" name="question[weekday][]">
                 <option disabled selected value> -- Day of the Week -- </option>
                 <option value="Monday">Monday</option>
                 <option value="Tuesday">Tuesday</option>
@@ -78,11 +78,11 @@
 
 
 
-      <div class="form-group dropdown-group">
+      <div class="form-group dropdown-group required">
         <div id="instruments">
           <label>Instrument</label>
-          <div class="instruments">
-            <select class="form-control" name="question[instruments]">
+          <div class="instrument">
+            <select class="form-control" name="question[instrument][]">
               <option disabled selected value> -- select an option -- </option>
               <option value="Violin">Violin</option>
               <option value="Cello">Cello</option>
@@ -90,7 +90,7 @@
               <option value="Piano">Piano</option>
               <option value="Others" >Others</option>
             </select>
-            <input class="form-control instr_other" type="text" style="display:none;" name="question[instruments]" placeholder="Specify instrument">
+            <input class="form-control instr_other" type="text" style="display:none;" name="question[others][]" placeholder="Specify instrument">
           </div>
         </div>
         <button type="button" class="btn btn-primary btn-sm" id="add_instr">

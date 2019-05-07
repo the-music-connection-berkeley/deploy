@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190410043642) do
+ActiveRecord::Schema.define(version: 20190507051338) do
+
+  create_table "availabilities", force: :cascade do |t|
+    t.string "weekday"
+    t.string "start_time"
+    t.string "end_time"
+  end
 
   create_table "parents", force: :cascade do |t|
     t.string   "name"
@@ -20,12 +26,15 @@ ActiveRecord::Schema.define(version: 20190410043642) do
     t.string   "address"
     t.string   "piano"
     t.string   "grade"
-    t.string   "instruments"
+    t.string   "piano_home"
+    t.string   "availabilities"
+    t.string   "instrument"
     t.string   "experiences"
     t.string   "pastapp"
     t.string   "lunch"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "number_of_matches"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -35,11 +44,10 @@ ActiveRecord::Schema.define(version: 20190410043642) do
     t.string   "class_name"
     t.string   "school_name"
     t.string   "grade"
-    t.string   "time_availavility"
-    t.string   "start_date"
-    t.string   "end_date"
-    t.string   "instruments"
+    t.string   "availabilities"
+    t.string   "instrument"
     t.string   "comment"
+    t.integer  "number_of_matches"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
@@ -53,17 +61,19 @@ ActiveRecord::Schema.define(version: 20190410043642) do
     t.string   "major"
     t.string   "minor"
     t.string   "experiences"
-    t.string   "in_class"
-    t.string   "instruments"
-    t.string   "time_availavility"
+    t.string   "availabilities"
     t.string   "preferred_grade"
+    t.string   "in_class"
+    t.string   "instrument"
     t.string   "private"
     t.string   "piano"
     t.string   "returning"
     t.string   "prev_again"
-    t.string   "interview_time"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.string   "preffered_student_class"
+    t.string   "comment"
+    t.integer  "number_of_matches"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
 end

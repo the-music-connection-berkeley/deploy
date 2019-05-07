@@ -9,16 +9,17 @@ class CreateTutors < ActiveRecord::Migration
       t.string :major
       t.string :minor
       t.string :experiences
-      t.string :time_availability
+      t.string :availabilities
       t.string :preferred_grade
       t.string :in_class
-      t.string :instruments
+      t.string :instrument
       t.string :private
       t.string :piano_vocal
       t.string :returning
       t.string :prev_again
       t.string :preffered_student_class
       t.string :comment
+      t.integer :number_of_matches
       t.timestamps null: false
     end
   end

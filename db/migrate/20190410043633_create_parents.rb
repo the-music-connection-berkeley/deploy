@@ -7,11 +7,12 @@ class CreateParents < ActiveRecord::Migration
       t.string :address
       t.string :grade
       t.string :piano_home
-      t.string :time_availability
-      t.string :instruments
+      t.string :availabilities
+      t.string :instrument
       t.string :experiences
       t.string :pastapp
       t.string :lunch
+      t.integer :number_of_matches
       t.timestamps null: false
     end
   end

@@ -8,15 +8,16 @@ FactoryGirl.define do
     major 'CS'
     minor 'CS'
     experiences '6 months'
-    time_availability "3-5"
+    availabilities '4&5'
     preferred_grade '7~9'
     in_class 'Yes'
-    instruments 'Piano'
+    instrument 'Piano'
     private 'Yes'
     piano_vocal 'Piano'
     returning 'Yes'
     prev_again 'Yes'
     preffered_student_class 'none'
     comment 'no comment'
+    number_of_matches 0
   end
 end

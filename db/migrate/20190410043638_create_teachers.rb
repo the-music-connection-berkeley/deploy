@@ -7,9 +7,10 @@ class CreateTeachers < ActiveRecord::Migration
       t.string :class_name
       t.string :school_name
       t.string :grade
-      t.string :time_availability
-      t.string :instruments
+      t.string :availabilities
+      t.string :instrument
       t.string :comment
+      t.integer :number_of_matches
       t.timestamps null: false
     end
   end

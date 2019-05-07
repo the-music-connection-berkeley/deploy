@@ -13,6 +13,13 @@ Scenario: Successfully submit tutor form
   And I fill in "Year" with "Senior"
   And I fill in "Major" with "Computer Science"
   And I fill in "Minor" with "Music"
+  And I select "6 month" from "question[exp]"
+  And I press "Next"
+  Then I should see "In Class"
+  When I choose "InClass_Yes"
+  Then I should see "Instrument"
+  And I select "Cello" from "question[instrument]"
+
   And I select "6 month" from "Experiences"
   And I select "Monday" from "Time Availability"
   And I press "Next"
@@ -23,6 +30,11 @@ Scenario: Successfully submit tutor form
   And I choose "Private_Yes"
   Then I should see "Piano or Vocal?"
   When I check "Piano"
+
+
+Scenario: Missing fields
+  Given I am on the tutor form
+  When I fill in "Name" with "TMC"
   And I check "Grade 3~5p"
   And I press "Next"
   Then I should see "Member Commitment Policy"
