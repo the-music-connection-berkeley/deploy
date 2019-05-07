@@ -42,7 +42,7 @@
           <label>Time Availability</label>
           <div class="time-group row">
             <div class="col-md-4" id="day_of_week">
-              <select class="form-control" name="question[weekday]">
+              <select class="form-control" name="question[weekday][]">
                 <option disabled selected value> -- Day of the Week -- </option>
                 <option value="Monday">Monday</option>
                 <option value="Tuesday">Tuesday</option>
@@ -52,10 +52,10 @@
               </select>
             </div>
             <div class="col-md-4" id="start_time">
-              <input class="form-control" name="question[start_time]" type="time" value="13:45" id="example-time-input">
+              <input class="form-control" name="question[start_time][]" type="time" value="13:45" id="example-time-input">
             </div>
             <div class="col-md-4" id="end_time">
-              <input class="form-control" name="question[end_time]" type="time" value="15:45" id="example-time-input">
+              <input class="form-control" name="question[end_time][]" type="time" value="15:45" id="example-time-input">
             </div>
           </div>
         </div>
@@ -82,7 +82,7 @@
         <div id="instruments">
           <label>Instrument</label>
           <div class="instrument">
-            <select class="form-control" name="question[instrument]">
+            <select class="form-control" name="question[instrument][]">
               <option disabled selected value> -- select an option -- </option>
               <option value="Violin">Violin</option>
               <option value="Cello">Cello</option>
@@ -90,7 +90,7 @@
               <option value="Piano">Piano</option>
               <option value="Others" >Others</option>
             </select>
-            <input class="form-control instr_other" type="text" style="display:none;" name="question[instrument]" placeholder="Specify instrument">
+            <input class="form-control instr_other" type="text" style="display:none;" name="question[others][]" placeholder="Specify instrument">
           </div>
         </div>
         <button type="button" class="btn btn-primary btn-sm" id="add_instr">
@@ -111,7 +111,6 @@
           <option value="3 years"> 3 years </option>
           <option value="4+ years" > 4+ years </option>
         </select>
-        <input class="form-control" type="text" id="instr_other" style="display:none;" name="question[instrument]" placeholder="Specify instrument">
         <small class="form-text text-muted">If you have any involvement with other musical group, please write them down here!</small>
       </div>
 

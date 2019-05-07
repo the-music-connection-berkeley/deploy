@@ -9,7 +9,7 @@ class CreateTutors < ActiveRecord::Migration
       t.string :major
       t.string :minor
       t.string :experiences
-      t.integer :availability
+      t.string :availabilities
       t.string :preferred_grade
       t.string :in_class
       t.string :instrument
