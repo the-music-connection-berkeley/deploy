@@ -1,8 +1,10 @@
 class Matcher
+
+    possible_matches = Hash.new([])
+    sorted_tutors = Tutors.all
+
     def initialize
     end
-
-    def split_helper
 
     def match_counter
         teachers = Teacher.all
@@ -21,27 +23,27 @@ class Matcher
 
     def parent_counter(tutor)
       Parents.all.each do |parent|
-        if tutor.piano_vocal == parent.instruments
+        if tutor.piano_vocal == parent.instrument[0] && time_matches?(tutor, parent)
           tutor.number_of_matches += 1
           parent.number_of_matches += 1
+          possible_matches[tutor.id] += [parent]
         end
       end
+    end
 
     def teacher_counter(tutor)
       instruments = tutor.instruments.split("&")
       Teacher.all.each do |teacher|
         instruments.each do |instrument|
-          if instrument in teacher.instruments
-            if time_matches?(tutor, teacher)
-              tutor.number_of_matches += 1
-              teacher.number_of_matches += 1
-              break
-            end
+          if instrument in teacher.instruments && time_matches?(tutor, teacher)
+            tutor.number_of_matches += 1
+            teacher.number_of_matches += 1
+            possible_matches[tutor.id] += [teacher]
+            break
           end
         end
       end
     end
-
 
     //"1&2" -> parsing -> availabilities.find(1,2)
     def time_matches?(tutor, teacher)
@@ -73,8 +75,25 @@ class Matcher
         end
     end
 
-
-
-    def match_parent_tutor
+    def sort
+       sorted_tutors.sort_by{ |tutor| tutor.number_of_matches }
+       possible_matches.each do |tutor_id|
+         possible_matches[tutor_id].sort_by{ |tutee| tutee.number_of_matches }
+       end
     end
+
+    def final_match
+      sorted_tutors.each do |sorted_tutor|
+        possible_matches[sorted_tutor.id].each do |tutee|
+          if tutee.matched == 0
+            tutee.matched = 1
+            tutor.matched = 1
+            Matched.tutor = tutor
+            Matched.teacher = tutor
+            break
+          end
+        end
+      end
+    end
+
 end
