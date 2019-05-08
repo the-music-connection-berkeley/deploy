@@ -99,7 +99,7 @@
   <div class="tab">
     <div class="form-group dropdown-group required">
       <div id="instruments">
-        <label>Instrument</label>
+        <label>Instrument/Singing</label>
         <div class="instrument">
           <select class="form-control" name="question[instrument][]">
             <option disabled selected value> -- select an option -- </option>
@@ -107,6 +107,7 @@
             <option value="Cello">Cello</option>
             <option value="Guitar">Guitar</option>
             <option value="Piano">Piano</option>
+            <option value="Singing">Singing</option>
             <option value="Others" >Others</option>
           </select>
           <input class="form-control instr_other" type="text" style="display:none;" name="question[others][]" placeholder="Specify instrument">
@@ -127,37 +128,38 @@
       <label for="question[in_class]">In Class</label> <br>
       <input type="radio" name="question[in_class]" value="Yes" id="InClass_Yes">      Yes
       <input type="radio" name="question[in_class]" value="No" id="InClass_No">      No <br>
-      <small class="form-text text-muted">Select yes if you are planning to teach in class.</small>
+      <small class="form-text text-muted">Select yes if you would like to teach in class.</small>
     </div>
   </div>
 
 
-
-  <div class="tab">
-    <div class="form-group radio-group required" id="jump-group1">
-      <label>Private Piano or Vocal?</label> <br>
-      <input type="radio" name="question[private]" value="Yes" id="Private_Yes">      Yes
-      <input type="radio" name="question[private]" value="No" id="Private_No">      No <br>
-      <small class="form-text text-muted">Select Yes if you are doing private piano or vocal tutoring.</small>
-    </div>
-  </div>
 
   <div class="tab">
     <div class="form-group radio-group required">
-      <label>Piano or Vocal?</label> <br>
-      <input type="radio" name="question[piano_vocal]" value="Piano">      Piano
-      <input type="radio" name="question[piano_vocal]" value="Vocal" >      Vocal <br>
+      <label>Private Lessons?</label> <br>
+      <input type="radio" name="question[private]" value="Yes" id="Private_Yes">      Yes
+      <input type="radio" name="question[private]" value="No" id="Private_No">      No <br>
+      <small class="form-text text-muted">Select Yes if you would like to teach private lessons.</small>
     </div>
   </div>
 
   <div class="tab">
     <div>
       <h4>Member Commitment Policy</h4>
-      <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h5>
+      <h5>
+        <ol>
+         <li>Regular weekly tutoring (at least one hour per week)</li>
+         <li>Attend general meetings</li>
+         <li>Volunteer for TMC-sponsored events as needed</li>
+       </ol>
+      </h5>
     </div>
     <div>
       <h4>Attendance Policy</h4>
-      <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h5>
+      <h5>As a music tutor it is your responsibility to attend your scheduled tutoring placement on time, every week. However, we know that unexpected sickness and emergencies happen from time to time. For these cases, you have one (1) emergency absence per placement site for sickness/unexpected circumstances.
+
+If you do know that you have to miss tutoring for something ahead of time, you may use a planned absence. You are allowed one (1) planned absence per site. You may not use your emergency absence as a second planned absence.
+</h5>
     </div>
     <div class="form-group checkbox-group required">
       <label>Member Commitment Policy</label><br>

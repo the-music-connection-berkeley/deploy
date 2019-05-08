@@ -14,7 +14,6 @@ class CreateTutors < ActiveRecord::Migration
       t.string :in_class
       t.string :instrument
       t.string :private
-      t.string :piano_vocal
       t.string :returning
       t.string :prev_again
       t.string :preffered_student_class

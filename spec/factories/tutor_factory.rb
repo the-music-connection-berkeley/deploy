@@ -13,7 +13,6 @@ FactoryGirl.define do
     in_class 'Yes'
     instrument 'Piano'
     private 'Yes'
-    piano_vocal 'Piano'
     returning 'Yes'
     prev_again 'Yes'
     preffered_student_class 'none'
