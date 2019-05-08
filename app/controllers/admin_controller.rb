@@ -7,7 +7,10 @@ class AdminController < ApplicationController
 
   def generate_matches
   end
-
+  def run_algo
+    Matcher.new.main
+    render text: ""
+  end
   def results
   end
   def match_pair

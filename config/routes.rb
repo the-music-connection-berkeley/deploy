@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'admin/results'
 
+  post 'admin/run_algo' => 'admin#run_algo'
   post 'admin/match_pair' => 'admin#match_pair'
   put 'admin/undo_pair' => 'admin#undo_pair'
   get '/forms' => 'forms#index'
