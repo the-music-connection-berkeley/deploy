@@ -73,7 +73,7 @@ class FormsController < ApplicationController
     lunch = params[:question][:lunch]
     others = params[:question][:others]
     number_of_matches = 0
-    
+
     times = ""
     instruments = ""
     other_count = 1
@@ -118,7 +118,6 @@ class FormsController < ApplicationController
     in_class = params[:question][:in_class]
     instrument = params[:question][:instrument]
     private = params[:question][:private]
-    piano_vocal = params[:question][:piano_vocal]
     returning = params[:question][:returning]
     prev_again = params[:question][:prev_again]
     preffered_student_class = params[:question][:preffered_student_class]
@@ -149,7 +148,7 @@ class FormsController < ApplicationController
       email: email, sid: sid, year: year,
       major: major, minor: minor, experiences: experiences, availabilities: times,
     preferred_grade: preferred_grade, in_class: in_class, instrument: instruments,
-    private: private, piano_vocal: piano_vocal, returning: returning,
+    private: private, returning: returning,
     prev_again: prev_again, preffered_student_class: preffered_student_class, comment: comment,
     number_of_matches: number_of_matches, matched: false}
     tutor.save!

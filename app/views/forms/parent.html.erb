@@ -52,10 +52,10 @@
               </select>
             </div>
             <div class="col-md-4" id="start_time">
-              <input class="form-control" name="question[start_time][]" type="time" value="13:00:00" id="example-time-input" step="1800" onkeydown="return false">
+              <input class="form-control" name="question[start_time][]" type="time" value="13:45" id="example-time-input">
             </div>
             <div class="col-md-4" id="end_time">
-              <input class="form-control" name="question[end_time][]" type="time" value="15:00:00" id="example-time-input" step="1800" onkeydown="return false">
+              <input class="form-control" name="question[end_time][]" type="time" value="15:45" id="example-time-input">
             </div>
           </div>
         </div>
@@ -80,20 +80,31 @@
 
       <div class="form-group dropdown-group required">
         <div id="instruments">
-          <label>Instrument</label>
+          <label>Instrument/Singing</label>
           <div class="instrument">
             <select class="form-control" name="question[instrument][]">
               <option disabled selected value> -- select an option -- </option>
+              <option value="Violin">Violin</option>
+              <option value="Cello">Cello</option>
+              <option value="Guitar">Guitar</option>
               <option value="Piano">Piano</option>
-              <option value="Vocal" >Vocal</option>
+              <option value="Singing">Piano</option>
+              <option value="Others" >Others</option>
             </select>
             <input class="form-control instr_other" type="text" style="display:none;" name="question[others][]" placeholder="Specify instrument">
           </div>
         </div>
+        <button type="button" class="btn btn-primary btn-sm" id="add_instr">
+          Add More Instrument
+        </button>
+        <button type="button" class="btn btn-primary btn-sm" id="rem_instr">
+          Remove Instrument
+        </button>
+        <small class="form-text text-muted">Select the instruments you would like to have lessons for.</small>
       </div>
 
       <div class="form-group dropdown-group required">
-        <label for="extra">Experiences</label>
+        <label for="extra">Experience</label>
         <select class="form-control" name="question[experiences]" id="experiences">
           <option value="6 month"> < 6 months </option>
           <option value="1 year"> 1 year</option>
@@ -101,6 +112,7 @@
           <option value="3 years"> 3 years </option>
           <option value="4+ years" > 4+ years </option>
         </select>
+        <small class="form-text text-muted">If you have any involvement with other musical group, please write them down here!</small>
       </div>
 
       <div class="form-group dropdown-group required">
