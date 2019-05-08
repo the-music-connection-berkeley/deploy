@@ -97,15 +97,6 @@
   </div>
 
   <div class="tab">
-    <div class="form-group radio-group required" id="jump-group0">
-      <label for="question[in_class]">In Class</label> <br>
-      <input type="radio" name="question[in_class]" value="Yes" id="InClass_Yes">      Yes
-      <input type="radio" name="question[in_class]" value="No" id="InClass_No">      No <br>
-      <small class="form-text text-muted">Select yes if you are planning to teach in class.</small>
-    </div>
-  </div>
-
-  <div class="tab">
     <div class="form-group dropdown-group required">
       <div id="instruments">
         <label>Instrument</label>
@@ -122,14 +113,25 @@
         </div>
       </div>
       <button type="button" class="btn btn-primary btn-sm" id="add_instr">
-        Add More Instrument
+        Add More Instruments
       </button>
       <button type="button" class="btn btn-primary btn-sm" id="rem_instr">
-        Remove Instrument
+        Remove Instruments
       </button>
-      <small class="form-text text-muted">Select the instruments you are requesting.</small>
+      <small class="form-text text-muted">Select the instruments you are comfortable with teaching.</small>
     </div>
   </div>
+
+  <div class="tab">
+    <div class="form-group radio-group required">
+      <label for="question[in_class]">In Class</label> <br>
+      <input type="radio" name="question[in_class]" value="Yes" id="InClass_Yes">      Yes
+      <input type="radio" name="question[in_class]" value="No" id="InClass_No">      No <br>
+      <small class="form-text text-muted">Select yes if you are planning to teach in class.</small>
+    </div>
+  </div>
+
+
 
   <div class="tab">
     <div class="form-group radio-group required" id="jump-group1">
