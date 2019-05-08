@@ -11,10 +11,10 @@ class Matcher
         parents = Parent.all
 
         tutors.each do |tutor|
-          if tutor.private == "yes":
+          if tutor.private == "yes"
             parent_counter(tutor)
           end
-          if tutor.in_class = "yes":
+          if tutor.in_class == "yes"
             teacher_counter(tutor)
           end
         end
@@ -36,7 +36,7 @@ class Matcher
       instruments = tutor.instruments.split("&")
       Teacher.all.each do |teacher|
         instruments.each do |instrument|
-          if instrument in teacher.instruments && time_matches?(tutor, teacher)
+          if teacher.instruments.includes? instrument && time_matches?(tutor, teacher)
             tutor['number_of_matches'] += 1
             teacher['number_of_matches'] += 1
             possible_matches[tutor['id']] += [teacher]
@@ -68,8 +68,8 @@ class Matcher
              if get_day(t1) == get_day(t2)
                  start_t = [get_start(t1), get_start(t2)].max
                  end_t = [get_end(t1), get_end(t2)].min
-                 if (end[0].to_i*60 + end[1].to_i) - (start[0].to_i*60 + start[1].to_i) >= 60
-                     if !(tutor['id'] in self.matched_records)
+                 if (end_t[0].to_i * 60 + end_t[1].to_i) - (start[0].to_i*60 + start[1].to_i) >= 60
+                     if !(self.matched_records.includes? tutor['id'])
                          self.matched_records[tutor['id']] = []
                      end
                      self.matched_records[tutor['id']] << tutee['id']
