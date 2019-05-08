@@ -6,10 +6,9 @@ FactoryGirl.define do
     class_name 'best class'
     school_name 'best school'
     grade '9'
-    weekday "Monday"
-    start_time "3"
-    end_time "5"
+    availabilities '4&5'
     instrument 'Piano'
     comment 'no comment'
+    number_of_matches 0
   end
 end

@@ -27,10 +27,32 @@ class FormsController < ApplicationController
     end_time = params[:question][:end_time]
     instrument = params[:question][:instrument]
     comment = params[:question][:comment]
+    others = params[:question][:others]
+    number_of_matches = 0
+    times = ""
+    instruments = ""
+    other_count = 1
+    for i in 0...instrument.count do
+      if instrument[i] === "Others"
+        instruments += (others[other_count] + "&")
+        other_count += 1
+      else
+        instruments += (instrument[i] + "&")
+      end
+    end
+    instruments = instruments.chomp("&")
+    for i in 0...weekday.count do
+      availability = Availability.new
+      availability.attributes = {weekday: weekday[i], start_time: start_time[i], end_time: end_time[i]}
+      availability.save!
+      times += (availability.id.to_s + "&")
+    end
+    times = times.chomp("&")
     teacher = Teacher.new
     teacher.attributes = {name: name, phone: phone,
       email: email, class_name: class_name, school_name: school_name,
-      grade: grade, weekday: weekday, start_time: start_time, end_time: end_time, instrument: instrument, comment: comment}
+      grade: grade, availabilities: times, instrument: instruments, comment: comment,
+      number_of_matches: number_of_matches}
     teacher.save!
     render 'thank_you'
   end
@@ -49,11 +71,32 @@ class FormsController < ApplicationController
     experiences = params[:question][:experiences]
     pastapp = params[:question][:pastapp]
     lunch = params[:question][:lunch]
+    others = params[:question][:others]
+    number_of_matches = 0
+    times = ""
+    instruments = ""
+    other_count = 1
+    for i in 0...instrument.count do
+      if instrument[i] === "Others"
+        instruments += (others[other_count] + "&")
+        other_count += 1
+      else
+        instruments += (instrument[i] + "&")
+      end
+    end
+    instruments = instruments.chomp("&")
+    for i in 0...weekday.count do
+      availability = Availability.new
+      availability.attributes = {weekday: weekday[i], start_time: start_time[i], end_time: end_time[i]}
+      availability.save!
+      times += (availability.id.to_s + "&")
+    end
+    times = times.chomp("&")
     parent = Parent.new
     parent.attributes = {name: name, phone: phone,
-      email: email, address: address, grade: grade, weekday: weekday, start_time: start_time, end_time: end_time, piano_home: piano_home,
-      instrument: instrument, experiences: experiences,
-    pastapp: pastapp, lunch: lunch}
+      email: email, address: address, grade: grade, availabilities: times, piano_home: piano_home,
+      instrument: instruments, experiences: experiences,
+    pastapp: pastapp, lunch: lunch, number_of_matches: number_of_matches}
     parent.save!
     render 'thank_you'
   end
@@ -79,14 +122,35 @@ class FormsController < ApplicationController
     prev_again = params[:question][:prev_again]
     preffered_student_class = params[:question][:preffered_student_class]
     comment = params[:question][:comment]
-
+    others = params[:question][:others]
+    number_of_matches = 0
+    times = ""
+    instruments = ""
+    other_count = 1
+    for i in 0...instrument.count do
+      if instrument[i] === "Others"
+        instruments += (others[other_count] + "&")
+        other_count += 1
+      else
+        instruments += (instrument[i] + "&")
+      end
+    end
+    instruments = instruments.chomp("&")
+    for i in 0...weekday.count do
+      availability = Availability.new
+      availability.attributes = {weekday: weekday[i], start_time: start_time[i], end_time: end_time[i]}
+      availability.save!
+      times += (availability.id.to_s + "&")
+    end
+    times = times.chomp("&")
     tutor = Tutor.new
     tutor.attributes = {name: name, phone: phone,
       email: email, sid: sid, year: year,
-      major: major, minor: minor, experiences: experiences, weekday: weekday, start_time: start_time, end_time: end_time,
-    preferred_grade: preferred_grade, in_class: in_class, instrument: instrument,
+      major: major, minor: minor, experiences: experiences, availabilities: times,
+    preferred_grade: preferred_grade, in_class: in_class, instrument: instruments,
     private: private, piano_vocal: piano_vocal, returning: returning,
-   prev_again: prev_again, preffered_student_class: preffered_student_class, comment: comment}
+    prev_again: prev_again, preffered_student_class: preffered_student_class, comment: comment,
+    number_of_matches: number_of_matches}
     tutor.save!
     render 'thank_you'
   end

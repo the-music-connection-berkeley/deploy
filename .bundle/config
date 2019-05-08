@@ -1,6 +1,3 @@
 ---
 BUNDLE_WITHOUT: "production"
-<<<<<<< HEAD
-=======
 BUNDLE_WITH: "test"
->>>>>>> cc59733e28669bb903ef42fb075b60bbb26c7cc9

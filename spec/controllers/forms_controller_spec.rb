@@ -24,4 +24,25 @@ describe FormsController do
       expect(response.status).to eq(200)
     end
   end
+  describe "POST teacher_submit" do
+    it "successfully submits" do
+      post :teacher_submit, :question => {:teacher_name => "My name", :phone => "818",
+      :weekday => ["Monday", "Tuesday"], :start_time => ["2", "3"], :end_time => ["4", "6"],
+      :instrument => ["Oboe", "Others"], :others => ["Violin", "Trumpet"]}
+    end
+  end
+  describe "POST tutor_submit" do
+    it "successfully submits" do
+      post :tutor_submit, :question => {:name => "My name", :phone => "818",
+      :weekday => ["Monday", "Tuesday"], :start_time => ["2", "3"], :end_time => ["4", "6"],
+      :instrument => ["Oboe", "Others"], :others => ["Violin", "Trumpet"], :piano_vocal => "Piano"}
+    end
+  end
+  describe "POST parent_submit" do
+    it "successfully submits" do
+      post :parent_submit, :question => {:name => "My name", :phone => "818",
+      :weekday => ["Monday", "Tuesday"], :start_time => ["2", "3"], :end_time => ["4", "6"],
+      :instrument => ["Oboe", "Others"], :others => ["Violin", "Trumpet"]}
+    end
+  end
 end
