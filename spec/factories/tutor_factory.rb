@@ -15,7 +15,7 @@ FactoryGirl.define do
     private 'Yes'
     returning 'Yes'
     prev_again 'Yes'
-    preffered_student_class 'none'
+    preferred_student_class 'none'
     comment 'no comment'
     number_of_matches 0
     matched false

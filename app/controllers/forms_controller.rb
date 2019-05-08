@@ -120,7 +120,7 @@ class FormsController < ApplicationController
     private = params[:question][:private]
     returning = params[:question][:returning]
     prev_again = params[:question][:prev_again]
-    preffered_student_class = params[:question][:preffered_student_class]
+    preferred_student_class = params[:question][:preferred_student_class]
     comment = params[:question][:comment]
     others = params[:question][:others]
     number_of_matches = 0
@@ -149,7 +149,7 @@ class FormsController < ApplicationController
       major: major, minor: minor, experiences: experiences, availabilities: times,
     preferred_grade: preferred_grade, in_class: in_class, instrument: instruments,
     private: private, returning: returning,
-    prev_again: prev_again, preffered_student_class: preffered_student_class, comment: comment,
+    prev_again: prev_again, preferred_student_class: preferred_student_class, comment: comment,
     number_of_matches: number_of_matches, matched: false}
     tutor.save!
     render 'thank_you'

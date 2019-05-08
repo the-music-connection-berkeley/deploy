@@ -8,7 +8,7 @@
       <div class="form-group required">
         <label for="name">Student Name</label>
         <input type="text" name="question[name]" class="form-control" placeholder="ex. First Middle Last">
-        <small class="form-text text-muted">Please enter your full name here!</small>
+        <small class="form-text text-muted">Please submit one form per student!</small>
       </div>
       <div class="form-group required">
         <label for="phone">Phone Number</label>
@@ -106,10 +106,11 @@
       <div class="form-group dropdown-group required">
         <label for="extra">Experience</label>
         <select class="form-control" name="question[experiences]" id="experiences">
-          <option value="6 month"> < 6 months </option>
-          <option value="1 year"> 1 year</option>
-          <option value="2 years"> 2 years </option>
-          <option value="3 years"> 3 years </option>
+          <option value="< 6 months"> < 6 months </option>
+          <option value="6 months-1 year"> 6 months-1 year</option>
+          <option value="1-2 years "> 1-2 years </option>
+          <option value="2-3 years "> 2-3 years  </option>
+          <option value="3-4 years "> 3-4 years  </option>
           <option value="4+ years" > 4+ years </option>
         </select>
         <small class="form-text text-muted">If you have any involvement with other musical group, please write them down here!</small>

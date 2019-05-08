@@ -16,7 +16,7 @@ class CreateTutors < ActiveRecord::Migration
       t.string :private
       t.string :returning
       t.string :prev_again
-      t.string :preffered_student_class
+      t.string :preferred_student_class
       t.string :comment
       t.integer :number_of_matches
       t.boolean :matched
