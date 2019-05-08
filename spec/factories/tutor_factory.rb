@@ -19,5 +19,6 @@ FactoryGirl.define do
     preffered_student_class 'none'
     comment 'no comment'
     number_of_matches 0
+    matched false
   end
 end

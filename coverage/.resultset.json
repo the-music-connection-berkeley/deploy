@@ -105,6 +105,7 @@
         1,
         1,
         1,
+        null,
         1,
         1,
         1,
@@ -299,6 +300,10 @@
         1,
         null
       ],
+      "/Users/Matthew/Desktop/musicconnection/app/models/match.rb": [
+        0,
+        0
+      ],
       "/Users/Matthew/Desktop/musicconnection/app/models/matcher.rb": [
         0,
         0,
@@ -394,6 +399,6 @@
         0
       ]
     },
-    "timestamp": 1557275013
+    "timestamp": 1557277367
   }
 }

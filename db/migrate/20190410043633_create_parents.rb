@@ -13,6 +13,7 @@ class CreateParents < ActiveRecord::Migration
       t.string :pastapp
       t.string :lunch
       t.integer :number_of_matches
+      t.boolean :matched
       t.timestamps null: false
     end
   end

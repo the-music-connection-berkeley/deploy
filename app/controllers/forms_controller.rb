@@ -52,7 +52,7 @@ class FormsController < ApplicationController
     teacher.attributes = {name: name, phone: phone,
       email: email, class_name: class_name, school_name: school_name,
       grade: grade, availabilities: times, instrument: instruments, comment: comment,
-      number_of_matches: number_of_matches}
+      number_of_matches: number_of_matches, matched: false}
     teacher.save!
     render 'thank_you'
   end
@@ -73,6 +73,7 @@ class FormsController < ApplicationController
     lunch = params[:question][:lunch]
     others = params[:question][:others]
     number_of_matches = 0
+    
     times = ""
     instruments = ""
     other_count = 1
@@ -96,7 +97,7 @@ class FormsController < ApplicationController
     parent.attributes = {name: name, phone: phone,
       email: email, address: address, grade: grade, availabilities: times, piano_home: piano_home,
       instrument: instruments, experiences: experiences,
-    pastapp: pastapp, lunch: lunch, number_of_matches: number_of_matches}
+    pastapp: pastapp, lunch: lunch, number_of_matches: number_of_matches, matched: false}
     parent.save!
     render 'thank_you'
   end
@@ -150,7 +151,7 @@ class FormsController < ApplicationController
     preferred_grade: preferred_grade, in_class: in_class, instrument: instruments,
     private: private, piano_vocal: piano_vocal, returning: returning,
     prev_again: prev_again, preffered_student_class: preffered_student_class, comment: comment,
-    number_of_matches: number_of_matches}
+    number_of_matches: number_of_matches, matched: false}
     tutor.save!
     render 'thank_you'
   end

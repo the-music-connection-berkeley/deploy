@@ -11,6 +11,7 @@ class CreateTeachers < ActiveRecord::Migration
       t.string :instrument
       t.string :comment
       t.integer :number_of_matches
+      t.boolean :matched
       t.timestamps null: false
     end
   end

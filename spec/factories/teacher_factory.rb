@@ -10,5 +10,6 @@ FactoryGirl.define do
     instrument 'Piano'
     comment 'no comment'
     number_of_matches 0
+    matched false
   end
 end
