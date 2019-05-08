@@ -11,12 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190507051338) do
+ActiveRecord::Schema.define(version: 20190508003536) do
 
   create_table "availabilities", force: :cascade do |t|
     t.string "weekday"
     t.string "start_time"
     t.string "end_time"
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.string "tutor_id"
+    t.string "tutee_id"
   end
 
   create_table "parents", force: :cascade do |t|
@@ -32,6 +37,7 @@ ActiveRecord::Schema.define(version: 20190507051338) do
     t.string   "pastapp"
     t.string   "lunch"
     t.integer  "number_of_matches"
+    t.boolean  "matched"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
@@ -47,6 +53,7 @@ ActiveRecord::Schema.define(version: 20190507051338) do
     t.string   "instrument"
     t.string   "comment"
     t.integer  "number_of_matches"
+    t.boolean  "matched"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
@@ -71,6 +78,7 @@ ActiveRecord::Schema.define(version: 20190507051338) do
     t.string   "preffered_student_class"
     t.string   "comment"
     t.integer  "number_of_matches"
+    t.boolean  "matched"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end

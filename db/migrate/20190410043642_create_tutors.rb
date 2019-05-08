@@ -20,6 +20,7 @@ class CreateTutors < ActiveRecord::Migration
       t.string :preffered_student_class
       t.string :comment
       t.integer :number_of_matches
+      t.boolean :matched
       t.timestamps null: false
     end
   end

@@ -12,5 +12,6 @@ FactoryGirl.define do
     pastapp 'Yes'
     lunch 'Yes'
     number_of_matches 0
+    matched false
   end
 end
