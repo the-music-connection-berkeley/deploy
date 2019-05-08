@@ -3,9 +3,6 @@ class Matcher
     possible_matches = Hash.new([])
     sorted_tutors = Tutors.all
 
-    def initialize
-    end
-
     def match_counter
         teachers = Teacher.all
         tutors = Tutor.all
@@ -45,30 +42,33 @@ class Matcher
       end
     end
 
-    //"1&2" -> parsing -> availabilities.find(1,2)
-    def time_matches?(tutor, teacher)
-        tutor_time.each do |time_block1|
-            day1 = time_block1[0]
-            range1 = Date.new(time_block1[1])
-            teacher_time.each do |time_block2|
-                day2 = time_block2[0]
-                if day1 == day2
-                    range2 = time_block2[1]
-                    if range1[0] > range2[0]
-                        low = range1[0]
-                    else
-                        low = range2[0]
-                    end
-                    if range1[1] < range2[1]
-                        hi = range1[1]
-                    else
-                        hi = range2[1]
-                    end
-                    if low <= hi
-                        intersection = hi - low
-                    end
-                    if intersection >= 1
-                        return true
+    # ["1&2&3"]
+    def get_times(person)
+        ret = []
+        person['availabilities'].split('&').each do |tid|
+            ret.append(Availability.find(id=tid))
+        end
+    end
+
+    def time_matches?(tutor, tutee)
+        get_day = lambda {|t| t['weekday']}
+        get_start = lambda {|t| t['start_time']}
+        get_end = lambda {|t| t['end_time']}
+        i = j = 0
+
+        tutor_times = get_times(tutor) # [{'weekday': 'Tuesday', 'start_time': '6', 'end_time': '9'}]
+        tutee_times = get_times(tutee)
+
+        tutor_times.each do |t1|
+            tutee_times.each do |t2|
+                if get_day(t1) == get_day(t2)
+                    start_t = [get_start(t1), get_start(t2)].max
+                    end_t = [get_end(t1), get_end(t2)].min
+                    if end-start >= 60
+                        if tutor['id'] not in self.matched_records
+                            self.matched_records[tutor['id']] = []
+                        end
+                        self.matched_records[tutor['id']] << tutee['id']
                     end
                 end
             end
