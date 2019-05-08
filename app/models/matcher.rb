@@ -21,9 +21,9 @@ class Matcher
     def parent_counter(tutor)
       Parents.all.each do |parent|
         if tutor.piano_vocal == parent.instrument[0] && time_matches?(tutor, parent)
-          tutor.number_of_matches += 1
-          parent.number_of_matches += 1
-          possible_matches[tutor.id] += [parent]
+          tutor['number_of_matches'] += 1
+          parent['number_of_matches'] += 1
+          possible_matches[tutor['id']] += [parent]
         end
       end
     end
@@ -33,9 +33,9 @@ class Matcher
       Teacher.all.each do |teacher|
         instruments.each do |instrument|
           if instrument in teacher.instruments && time_matches?(tutor, teacher)
-            tutor.number_of_matches += 1
-            teacher.number_of_matches += 1
-            possible_matches[tutor.id] += [teacher]
+            tutor['number_of_matches'] += 1
+            teacher['number_of_matches'] += 1
+            possible_matches[tutor['id']] += [teacher]
             break
           end
         end
@@ -65,10 +65,10 @@ class Matcher
                     start_t = [get_start(t1), get_start(t2)].max
                     end_t = [get_end(t1), get_end(t2)].min
                     if end-start >= 60
-                        if tutor['id'] not in self.matched_records
-                            self.matched_records[tutor['id']] = []
+                        if tutor['id'] not in self['matched']_records
+                            self['matched']_records[tutor['id']] = []
                         end
-                        self.matched_records[tutor['id']] << tutee['id']
+                        self['matched']_records[tutor['id']] << tutee['id']
                     end
                 end
             end
@@ -76,18 +76,18 @@ class Matcher
     end
 
     def sort
-       sorted_tutors.sort_by{ |tutor| tutor.number_of_matches }
+       sorted_tutors.sort_by{ |tutor| tutor['number_of_matches'] }
        possible_matches.each do |tutor_id|
-         possible_matches[tutor_id].sort_by{ |tutee| tutee.number_of_matches }
+         possible_matches[tutor_id].sort_by{ |tutee| tutee['number_of_matches'] }
        end
     end
 
     def final_match
       sorted_tutors.each do |sorted_tutor|
-        possible_matches[sorted_tutor.id].each do |tutee|
-          if tutee.matched == 0
-            tutee.matched = 1
-            tutor.matched = 1
+        possible_matches[sorted_tutor['id']].each do |tutee|
+          if tutee['matched'] == 0
+            tutee['matched'] = 1
+            tutor['matched'] = 1
             Matched.tutor = tutor
             Matched.teacher = tutor
             break
