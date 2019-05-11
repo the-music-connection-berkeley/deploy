@@ -4,15 +4,23 @@ class FormsController < ApplicationController
   end
 
   def teacher
+      if !session[:form_opened]
+          render text: "form closed!"
+      end
   end
 
   def parent
+      if !session[:form_opened]
+          render text: "form closed!"
+      end
   end
 
   def tutor
+      if !session[:form_opened]
+          render text: "form closed!"
+      end
       session[:q_page] = 0
       @q_page = 0
-      render 'tutor'
   end
 
   def teacher_submit
