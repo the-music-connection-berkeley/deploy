@@ -110,7 +110,7 @@ class FormsController < ApplicationController
     year = params[:question][:year]
     major = params[:question][:major]
     minor = params[:question][:minor]
-    experiences = params[:question][:experiences]
+    experiences = params[:question][:exp]
     weekday = params[:question][:weekday]
     start_time = params[:question][:start_time]
     end_time = params[:question][:end_time]
@@ -152,6 +152,7 @@ class FormsController < ApplicationController
     prev_again: prev_again, preferred_student_class: preferred_student_class, comment: comment,
     number_of_matches: number_of_matches, matched: false}
     tutor.save!
+
     render 'thank_you'
   end
 
