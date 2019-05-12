@@ -5,29 +5,29 @@
 
   <form method='POST', action='/forms/teacher_submit'>
     <div class="tab">
-      <div class="form-group">
+      <div class="form-group required">
         <label for="name">Teacher Name</label>
         <input type="text" name="question[teacher_name]" class="form-control" placeholder="ex. First Middle Last">
         <small class="form-text text-muted">Please enter your full name here!</small>
       </div>
-      <div class="form-group">
+      <div class="form-group required">
         <label for="phone">Phone Number</label>
         <input type="tel" name="question[phone]" class="form-control" placeholder="ex. 000-000-0000">
         <small class="form-text text-muted">Please enter your phone number here!</small>
       </div>
-      <div class="form-group email-group">
+      <div class="form-group email-group required">
         <label for="email">Email address</label>
         <input type="text" name="question[email]" class="form-control email" placeholder="ex. TMC@gmail.com" >
         <small class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
     </div>
     <div class="tab">
-      <div class="form-group">
+      <div class="form-group required">
         <label for="class_name">Class Name</label>
         <input type="text" name="question[class_name]" class="form-control" placeholder="ex. Piano Beginner">
         <small class="form-text text-muted">Please submit one form per student!</small>
       </div>
-      <div class="form-group">
+      <div class="form-group required">
         <label for="school_name">School</label>
         <input type="text" name="question[school_name]" class="form-control" placeholder="ex. Berkeley elementary school">
         <small class="form-text text-muted">Please enter your school here!</small>
@@ -45,7 +45,7 @@
         </select>
       </div>
 
-      <div class="form-group dropdown-group">
+      <div class="form-group dropdown-group required">
         <div id="time-groups">
           <label>Class Time</label>
           <div class="time-group row">
