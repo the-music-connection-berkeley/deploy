@@ -12,6 +12,7 @@ class CreateParents < ActiveRecord::Migration
       t.string :experiences
       t.string :pastapp
       t.string :lunch
+      t.string :comment
       t.integer :number_of_matches
       t.boolean :matched
       t.timestamps null: false

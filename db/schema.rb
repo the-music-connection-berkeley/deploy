@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20190508003536) do
     t.string   "experiences"
     t.string   "pastapp"
     t.string   "lunch"
+    t.string   "comment"
     t.integer  "number_of_matches"
     t.boolean  "matched"
     t.datetime "created_at",        null: false
