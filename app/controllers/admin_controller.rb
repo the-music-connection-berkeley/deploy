@@ -9,7 +9,7 @@ class AdminController < ApplicationController
   end
   def run_algo
     Matcher.new.main
-    render text: ""
+    render text: "algo has been ran"
   end
   def results
   end
