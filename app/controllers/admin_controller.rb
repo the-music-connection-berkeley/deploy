@@ -35,4 +35,28 @@ class AdminController < ApplicationController
         puts JSON.parse(request.body.read)
         render text: ""
     end
+
+    def reset_database
+        Teacher.delete_all
+        Tutor.delete_all
+        Parent.delete_all
+        Match.delete_all
+        flash[:notice] = 'Database has been reset!'
+        redirect_to '/admin/welcome'
+    end
+
+    def reset_matching
+        Teacher.all.each do |t|
+            t['matched'] = false
+        end
+        Tutor.all.each do |t|
+            t['matched'] = false
+        end
+        Parent.all.each do |p|
+            p['matched'] = false
+        end
+        Match.delete_all
+        flash[:notice] = 'Matching has been reset!'
+        redirect_to '/admin/welcome'
+    end
 end

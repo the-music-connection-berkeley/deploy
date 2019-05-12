@@ -28,6 +28,8 @@ Rails.application.routes.draw do
 
 
   get 'admin/welcome'
+  get 'admin/reset_matching'
+  get 'admin/reset_database'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
