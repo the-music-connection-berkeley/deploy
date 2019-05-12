@@ -20,7 +20,7 @@ class AdminController < ApplicationController
     def run_algo
       Matcher.new.main
       flash[:notice] = 'Matching has been completed!'
-      redirect_to '/admin'
+      redirect_to '/admin/welcome'
     end
 
     def results
