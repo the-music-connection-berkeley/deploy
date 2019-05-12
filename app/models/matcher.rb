@@ -37,11 +37,18 @@ class Matcher
 
     #it saves the #of matches and updates hashmap
     def parent_counter(tutor)
+      instruments = tutor.instrument.split("&")
         Parent.all.each do |parent|
-            if tutor.piano_vocal == parent.instrument[0] && time_matches?(tutor, parent)
-                tutor['number_of_matches'] += 1
-                parent['number_of_matches'] += 1
-                @possible_matches[tutor['id']] += [parent]
+          instruments.each do |instrument|
+              if parent.instrument.include? instrument and time_matches?(tutor, parent)
+                  tutor['number_of_matches'] += 1
+                  parent['number_of_matches'] += 1
+                  if @possible_matches.key? tutor['id']
+                      @possible_matches[tutor['id']] += [parent]
+                  else
+                      @possible_matches[tutor['id']] = [parent]
+                  end
+              end
             end
         end
     end

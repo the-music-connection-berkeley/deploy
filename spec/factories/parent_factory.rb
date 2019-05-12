@@ -6,7 +6,7 @@ FactoryGirl.define do
     address "Deadman's Lane"
     grade '9'
     piano_home 'Yes'
-    availabilities '4&5&6'
+    availabilities '1'
     instrument 'Piano&Violin'
     experiences '6 months'
     pastapp 'Yes'

@@ -6,7 +6,7 @@ FactoryGirl.define do
     class_name 'best class'
     school_name 'best school'
     grade '9'
-    availabilities '4&5'
+    availabilities '1'
     instrument 'Piano'
     comment 'no comment'
     number_of_matches 0
