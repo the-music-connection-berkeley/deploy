@@ -18,8 +18,8 @@ class AdminController < ApplicationController
     end
 
     def run_algo
-        Matcher.new.main
-        render text: ""
+      success = Matcher.new.main
+      render text: success
     end
 
     def results
