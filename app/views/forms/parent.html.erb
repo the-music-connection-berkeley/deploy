@@ -37,7 +37,7 @@
         </select>
       </div>
 
-      <div class="form-group dropdown-group">
+      <div class="form-group dropdown-group required">
         <div id="time-groups">
           <label>Time Availability</label>
           <div class="time-group row">
@@ -132,6 +132,13 @@
           <option>Yes</option>
         </select>
       </div>
+
+      <div class="form-group">
+        <label for="comment">Comment</label>
+        <input type="text" name="question[comment]" class="form-control">
+        <small class="form-text text-muted">Special instructions / Preference</small>
+      </div>
+
     </div>
     <button type="button" id="prev_btn" class="btn btn-primary">Prev</button>
     <button type="button" id="next_btn" class="btn btn-primary">Next</button>
