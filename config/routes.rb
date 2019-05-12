@@ -9,24 +9,23 @@ Rails.application.routes.draw do
   post 'admin/run_algo' => 'admin#run_algo'
   post 'admin/match_pair' => 'admin#match_pair'
   put 'admin/undo_pair' => 'admin#undo_pair'
-  get '/forms' => 'forms#index'
+
 
   resources :tutors
   resources :teachers
   resources :parents
+
   get 'forms/teacher'
-
   post 'forms/teacher' => 'forms#teacher'
-
-  post 'forms/tutor' => 'forms#tutor'
-
   post 'forms/teacher_submit' => 'forms#teacher_submit'
+
+  get 'forms/tutor'
+  get 'forms/parent'
+  get '/forms' => 'forms#index'
+  post 'forms/tutor' => 'forms#tutor'
   post 'forms/tutor_submit' => 'forms#tutor_submit'
   post 'forms/parent_submit' => 'forms#parent_submit'
 
-  get 'forms/parent'
-
-  get 'forms/tutor'
 
   get 'admin/welcome'
 

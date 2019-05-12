@@ -5,13 +5,13 @@ class AdminController < ApplicationController
     def open_form
         session[:form_opened] = true
         flash[:notice] = 'Form is now opened!'
-        redirect_to '/admin'
+        redirect_to '/admin/welcome'
     end
 
     def close_form
         session[:form_opened] = false
         flash[:notice] = 'Form has been closed!'
-        redirect_to '/admin'
+        redirect_to '/admin/welcome'
     end
 
     def generate_matches
@@ -19,7 +19,7 @@ class AdminController < ApplicationController
 
     def run_algo
       Matcher.new.main
-      flash[:notice] = 'Matching algorithm has been run!'
+      flash[:notice] = 'Matching has been completed!'
       redirect_to '/admin'
     end
 
