@@ -79,6 +79,7 @@ class FormsController < ApplicationController
     experiences = params[:question][:experiences]
     pastapp = params[:question][:pastapp]
     lunch = params[:question][:lunch]
+    comment = params[:question][:comment]
     others = params[:question][:others]
     number_of_matches = 0
 
@@ -105,7 +106,7 @@ class FormsController < ApplicationController
     parent.attributes = {name: name, phone: phone,
       email: email, address: address, grade: grade, availabilities: times, piano_home: piano_home,
       instrument: instruments, experiences: experiences,
-    pastapp: pastapp, lunch: lunch, number_of_matches: number_of_matches, matched: false}
+    pastapp: pastapp, lunch: lunch, comment: comment, number_of_matches: number_of_matches, matched: false}
     parent.save!
     render 'thank_you'
   end
