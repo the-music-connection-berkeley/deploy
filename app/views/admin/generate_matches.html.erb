@@ -22,8 +22,11 @@
       <%end%>
 
 
-      <% def generateTable(type, tableName) %>
+      <% def generateTable(type, tableName, filter) %>
 
+        <% if filter%>
+          <% type = type.where("comment != ''")%>
+        <% end %>
         <% type.all.each do |tutor| %>
           <% times = "" %>
 
@@ -46,7 +49,7 @@
           </tr>
         <%end%>
       <%end%>
-      <%generateTable(Tutor, "table1")%>
+      <%generateTable(Tutor, "table1", true)%>
     </table>
   </div>
   <div class="my-custom-scrollbar col-md-6">
@@ -57,8 +60,8 @@
         <th>Instrument</th>
         <th>Time Availability </th>
       </tr>
-      <%generateTable(Parent, "table2")%>
-      <%generateTable(Teacher, "table2")%>
+      <%generateTable(Parent, "table2", false)%>
+      <%generateTable(Teacher, "table2", false)%>
     </table>
   </div>
 </div>
