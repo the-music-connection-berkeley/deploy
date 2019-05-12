@@ -22,7 +22,7 @@ class Matcher
     end
 
     def match_counter
-        teachers = Teacher.all 
+        teachers = Teacher.all
         tutors = Tutor.all
         parents = Parent.all
 
@@ -37,11 +37,18 @@ class Matcher
 
     #it saves the #of matches and updates hashmap
     def parent_counter(tutor)
+      instruments = tutor.instrument.split("&")
         Parent.all.each do |parent|
-            if tutor.piano_vocal == parent.instrument[0] && time_matches?(tutor, parent)
-                tutor['number_of_matches'] += 1
-                parent['number_of_matches'] += 1
-                @possible_matches[tutor['id']] += [parent]
+          instruments.each do |instrument|
+              if parent.instrument.include? instrument and time_matches?(tutor, parent)
+                  tutor['number_of_matches'] += 1
+                  parent['number_of_matches'] += 1
+                  if @possible_matches.key? tutor['id']
+                      @possible_matches[tutor['id']] += [parent]
+                  else
+                      @possible_matches[tutor['id']] = [parent]
+                  end
+              end
             end
         end
     end
@@ -54,11 +61,11 @@ class Matcher
                 if teacher.instrument.include? instrument and time_matches?(tutor, teacher)
                     tutor['number_of_matches'] += 1
                     teacher['number_of_matches'] += 1
-                    if @possible_matches.key? tutor['id'] 
+                    if @possible_matches.key? tutor['id']
                         @possible_matches[tutor['id']] += [teacher]
                     else
                         @possible_matches[tutor['id']] = [teacher]
-                    end 
+                    end
                 end
             end
         end
@@ -111,19 +118,22 @@ class Matcher
         # for each tutor, (sorted in order from least to most number of possible matches)
         @sorted_tutors.each do |sorted_tutor|
         # we go through its possible matches (also sorted in order from least to most number of possible matches)
-            if @possible_matches[sorted_tutor['id']].nil? 
+            if @possible_matches[sorted_tutor['id']].nil?
                 puts "no"
             else
                 puts "yes"
                 @possible_matches[sorted_tutor['id']].each do |tutee|
                     # if the tutee is matched then we skip over it, otherwise we match it with the tutor
-                    if tutee['matched'] == false 
+                    if tutee['matched'] == false && sorted_tutor['matched'] == false
+                        Tutor.find(id = sorted_tutor['id']).update_attributes(:matched => true)
                         tutee['matched'] = true
                         sorted_tutor['matched'] = true
                         client_type = ""
                         if tutee.class == "Parent"
                             client_type = "p"
+                            Parent.find(id = tutee['id']).update_attributes(:matched => true)
                         else
+                            Teacher.find(id = tutee['id']).update_attributes(:matched => true)
                             client_type = "t"
                         end
                         Match.create(:tutor_id => sorted_tutor['id'], :tutee_id => client_type + tutee['id'].to_s)

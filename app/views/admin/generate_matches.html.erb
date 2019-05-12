@@ -55,19 +55,16 @@
         <th></th>
         <th>Name</th>
         <th>Instrument</th>
-        <th>Time Availaibility </th>
+        <th>Time Availability </th>
       </tr>
       <%generateTable(Parent, "table2")%>
       <%generateTable(Teacher, "table2")%>
     </table>
   </div>
 </div>
-<%= button_to "Match Pair", admin_run_algo_path, method: :main %>
+<button type="button" name="button" id="match_btn">Match Pair</button>
 <button type="button" name="button" id="undo_btn">Unmatch Pair</button>
 <br>
 
 <h3>Step 2. Run Algorithm </h3>
-
-<%= button_to "Run Algorithm!", admin_run_algo_path, method: :main%>
-<br>
-<br>
+<%= button_to "MATCH!!", admin_run_algo_path, method: :main %>

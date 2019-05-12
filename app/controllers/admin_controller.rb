@@ -18,17 +18,17 @@ class AdminController < ApplicationController
     end
 
     def run_algo
-      success = Matcher.new.main
+      Matcher.new.main
       flash[:notice] = 'Matching has been completed!'
-      redirect_to '/admin/welcome'
+      redirect_to '/admin'
     end
 
     def results
     end
 
     def match_pair
-        puts JSON.parse(request.body.read)
-        render text: ""
+      puts JSON.parse(request.body.read)
+      render text: ""
     end
 
     def undo_pair
