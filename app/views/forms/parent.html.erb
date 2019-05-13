@@ -8,7 +8,7 @@
       <div class="form-group required">
         <label for="name">Student Name</label>
         <input type="text" name="question[name]" class="form-control" placeholder="ex. First Middle Last">
-        <small class="form-text text-muted">Please enter your full name here!</small>
+        <small class="form-text text-muted">Please submit one form per student!</small>
       </div>
       <div class="form-group required">
         <label for="phone">Phone Number</label>
@@ -37,25 +37,27 @@
         </select>
       </div>
 
-      <div class="form-group dropdown-group">
+      <div class="form-group dropdown-group required">
         <div id="time-groups">
           <label>Time Availability</label>
           <div class="time-group row">
             <div class="col-md-4" id="day_of_week">
-              <select class="form-control" name="question[weekday]">
+              <select class="form-control" name="question[weekday][]">
                 <option disabled selected value> -- Day of the Week -- </option>
                 <option value="Monday">Monday</option>
                 <option value="Tuesday">Tuesday</option>
                 <option value="Wednesday">Wednesday</option>
                 <option value="Thursday">Thursday</option>
                 <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
               </select>
             </div>
             <div class="col-md-4" id="start_time">
-              <input class="form-control" name="question[start_time]" type="time" value="13:45" id="example-time-input">
+              <input class="form-control" name="question[start_time][]" type="time" value="13:00" id="example-time-input" step="1800" onkeydown="return false">
             </div>
             <div class="col-md-4" id="end_time">
-              <input class="form-control" name="question[end_time]" type="time" value="15:45" id="example-time-input">
+              <input class="form-control" name="question[end_time][]" type="time" value="15:00" id="example-time-input" step="1800" onkeydown="return false">
             </div>
           </div>
         </div>
@@ -80,17 +82,18 @@
 
       <div class="form-group dropdown-group required">
         <div id="instruments">
-          <label>Instrument</label>
+          <label>Instrument/Singing</label>
           <div class="instrument">
-            <select class="form-control" name="question[instrument]">
+            <select class="form-control" name="question[instrument][]">
               <option disabled selected value> -- select an option -- </option>
               <option value="Violin">Violin</option>
               <option value="Cello">Cello</option>
               <option value="Guitar">Guitar</option>
               <option value="Piano">Piano</option>
+              <option value="Singing">Piano</option>
               <option value="Others" >Others</option>
             </select>
-            <input class="form-control instr_other" type="text" style="display:none;" name="question[instrument]" placeholder="Specify instrument">
+            <input class="form-control instr_other" type="text" style="display:none;" name="question[others][]" placeholder="Specify instrument">
           </div>
         </div>
         <button type="button" class="btn btn-primary btn-sm" id="add_instr">
@@ -99,19 +102,19 @@
         <button type="button" class="btn btn-primary btn-sm" id="rem_instr">
           Remove Instrument
         </button>
-        <small class="form-text text-muted">Select the instruments you are requesting.</small>
+        <small class="form-text text-muted">Select the instruments you would like to have lessons for.</small>
       </div>
 
       <div class="form-group dropdown-group required">
-        <label for="extra">Experiences</label>
+        <label for="extra">Experience</label>
         <select class="form-control" name="question[experiences]" id="experiences">
-          <option value="6 month"> < 6 months </option>
-          <option value="1 year"> 1 year</option>
-          <option value="2 years"> 2 years </option>
-          <option value="3 years"> 3 years </option>
+          <option value="< 6 months"> < 6 months </option>
+          <option value="6 months-1 year"> 6 months-1 year</option>
+          <option value="1-2 years "> 1-2 years </option>
+          <option value="2-3 years "> 2-3 years  </option>
+          <option value="3-4 years "> 3-4 years  </option>
           <option value="4+ years" > 4+ years </option>
         </select>
-        <input class="form-control" type="text" id="instr_other" style="display:none;" name="question[instrument]" placeholder="Specify instrument">
         <small class="form-text text-muted">If you have any involvement with other musical group, please write them down here!</small>
       </div>
 
@@ -129,6 +132,13 @@
           <option>Yes</option>
         </select>
       </div>
+
+      <div class="form-group">
+        <label for="comment">Comment</label>
+        <input type="text" name="question[comment]" class="form-control">
+        <small class="form-text text-muted">Special instructions / Preference</small>
+      </div>
+
     </div>
     <button type="button" id="prev_btn" class="btn btn-primary">Prev</button>
     <button type="button" id="next_btn" class="btn btn-primary">Next</button>

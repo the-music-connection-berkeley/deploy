@@ -1,4 +1,26 @@
-
-<%= link_to "Close Form", admin_close_form_path %><br>
-<%= link_to "Generate Matches", admin_generate_matches_path %><br>
-<%= link_to "See Results", admin_results_path %>
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Login page</title>
+</head>
+<body>
+<form><br>
+   <label for="pswd">Enter password and CLICK the submit button: </label><br>
+   <input type="password" id="pswd">
+   <input type="button" value="Submit" onclick="checkPswd();" />
+</form>
+<!--Function to check password the already set password is admin-->
+<script type="text/javascript">
+   function checkPswd() {
+       var confirmPassword = "admin";
+       var password = document.getElementById("pswd").value;
+       if (password == confirmPassword) {
+            window.location="admin/welcome.html";
+       }
+       else{
+           alert("Passwords do not match.");
+       }
+   }
+</script>
+</body>
+</html>

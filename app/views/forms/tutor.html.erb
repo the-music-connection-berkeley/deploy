@@ -27,7 +27,7 @@
     </div>
     <div class="form-group required">
       <label for="question[year]">Year</label>
-      <input type="text" name="question[year]" class="form-control" placeholder="ex. Sophomore, Junior">
+      <input type="text" name="question[year]" class="form-control" placeholder="ex. Sophomore">
       <small class="form-text text-muted">Please enter your year here!</small>
     </div>
     <div class="form-group">
@@ -44,34 +44,34 @@
     <div class="form-group dropdown-group required">
       <label for="extra">Experiences</label>
       <select class="form-control" name="question[exp]">
-        <option value="6 month"> < 6 months </option>
-        <option value="1 year"> 1 year</option>
-        <option value="2 years"> 2 years </option>
-        <option value="3 years"> 3 years </option>
-        <option value="4+ years" > 4+ years </option>
+        <option value="1-5 years"> 1-5 years </option>
+        <option value="5-10 years"> 5-10 years</option>
+        <option value="10+ years"> 10+ years </option>
       </select>
-      <small class="form-text text-muted">Please enter the number of experience with your instrument!</small>
+      <small class="form-text text-muted">Please enter the approximate number of years of experience with your instrument!</small>
     </div>
 
-    <div class="form-group dropdown-group">
+    <div class="form-group dropdown-group required">
       <div id="time-groups">
         <label>Time Availability</label>
         <div class="time-group row">
           <div class="col-md-4" id="day_of_week">
-            <select class="form-control" name="question[weekday]">
+            <select class="form-control" name="question[weekday][]">
               <option disabled selected value> -- Day of the Week -- </option>
               <option value="Monday">Monday</option>
               <option value="Tuesday">Tuesday</option>
               <option value="Wednesday">Wednesday</option>
               <option value="Thursday">Thursday</option>
               <option value="Friday">Friday</option>
+              <option value="Saturday">Saturday</option>
+              <option value="Sunday">Sunday</option>
             </select>
           </div>
           <div class="col-md-4" id="start_time">
-            <input class="form-control" name="question[start_time]" type="time" value="13:45" id="example-time-input">
+            <input class="form-control" name="question[start_time][]" type="time" value="13:00:00" id="example-time-input" step="1800" onkeydown="return false">
           </div>
           <div class="col-md-4" id="end_time">
-            <input class="form-control" name="question[end_time]" type="time" value="15:45" id="example-time-input">
+            <input class="form-control" name="question[end_time][]" type="time" value="15:00:00" id="example-time-input" step="1800" onkeydown="return false">
           </div>
         </div>
       </div>
@@ -81,7 +81,7 @@
       <button type="button" class="btn btn-primary btn-sm" id="rem_time">
         Remove Time Availability
       </button>
-      <small class="form-text text-muted">Select the time you are requesting.</small>
+      <small class="form-text text-muted">Select the time ranges that you will be available.</small>
     </div>
 
     <div class="form-group dropdown-group required">
@@ -89,73 +89,77 @@
       <select class="form-control" name="question[preferred_grade]">
         <option>Grade 3~5</option>
         <option>Grade 6~8</option>
-        <option>Grade 9-11</option>
+        <option>Grade 9-12</option>
       </select>
-      <small class="form-text text-muted">Please enter the time ranges you can tutor</small>
+      <small class="form-text text-muted">What grade levels are you most comfortable with teaching?</small>
     </div>
 
-  </div>
-
-  <div class="tab">
-    <div class="form-group radio-group required" id="jump-group0">
-      <label for="question[in_class]">In Class</label> <br>
-      <input type="radio" name="question[in_class]" value="Yes" id="InClass_Yes">      Yes
-      <input type="radio" name="question[in_class]" value="No" id="InClass_No">      No <br>
-      <small class="form-text text-muted">Select yes if you are planning to teach in class.</small>
-    </div>
   </div>
 
   <div class="tab">
     <div class="form-group dropdown-group required">
       <div id="instruments">
-        <label>Instrument</label>
+        <label>Instrument/Singing</label>
         <div class="instrument">
-          <select class="form-control" name="question[instrument]">
+          <select class="form-control" name="question[instrument][]">
             <option disabled selected value> -- select an option -- </option>
             <option value="Violin">Violin</option>
             <option value="Cello">Cello</option>
             <option value="Guitar">Guitar</option>
             <option value="Piano">Piano</option>
+            <option value="Singing">Singing</option>
             <option value="Others" >Others</option>
           </select>
-          <input class="form-control instr_other" type="text" style="display:none;" name="question[instrument]" placeholder="Specify instrument">
+          <input class="form-control instr_other" type="text" style="display:none;" name="question[others][]" placeholder="Specify instrument">
         </div>
       </div>
       <button type="button" class="btn btn-primary btn-sm" id="add_instr">
-        Add More Instrument
+        Add More Instruments
       </button>
       <button type="button" class="btn btn-primary btn-sm" id="rem_instr">
-        Remove Instrument
+        Remove Instruments
       </button>
-      <small class="form-text text-muted">Select the instruments you are requesting.</small>
-    </div>
-  </div>
-
-  <div class="tab">
-    <div class="form-group radio-group required" id="jump-group1">
-      <label>Private Piano or Vocal?</label> <br>
-      <input type="radio" name="question[private]" value="Yes" id="Private_Yes">      Yes
-      <input type="radio" name="question[private]" value="No" id="Private_No">      No <br>
-      <small class="form-text text-muted">Select Yes if you are doing private piano or vocal tutoring.</small>
+      <small class="form-text text-muted">Select the instruments you are comfortable with teaching.</small>
     </div>
   </div>
 
   <div class="tab">
     <div class="form-group radio-group required">
-      <label>Piano or Vocal?</label> <br>
-      <input type="radio" name="question[piano_vocal]" value="Piano">      Piano
-      <input type="radio" name="question[piano_vocal]" value="Vocal" >      Vocal <br>
+      <label for="question[in_class]">In Class</label> <br>
+      <input type="radio" name="question[in_class]" value="Yes" id="InClass_Yes">      Yes
+      <input type="radio" name="question[in_class]" value="No" id="InClass_No">      No <br>
+      <small class="form-text text-muted">Select yes if you would like to teach in class.</small>
+    </div>
+  </div>
+
+
+
+  <div class="tab">
+    <div class="form-group radio-group required">
+      <label>Private Lessons?</label> <br>
+      <input type="radio" name="question[private]" value="Yes" id="Private_Yes">      Yes
+      <input type="radio" name="question[private]" value="No" id="Private_No">      No <br>
+      <small class="form-text text-muted">Select Yes if you would like to teach private lessons.</small>
     </div>
   </div>
 
   <div class="tab">
     <div>
       <h4>Member Commitment Policy</h4>
-      <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h5>
+      <h5>
+        <ol>
+         <li>Regular weekly tutoring (at least one hour per week)</li>
+         <li>Attend general meetings</li>
+         <li>Volunteer for TMC-sponsored events as needed</li>
+       </ol>
+      </h5>
     </div>
     <div>
       <h4>Attendance Policy</h4>
-      <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h5>
+      <h5>As a music tutor it is your responsibility to attend your scheduled tutoring placement on time, every week. However, we know that unexpected sickness and emergencies happen from time to time. For these cases, you have one (1) emergency absence per placement site for sickness/unexpected circumstances.
+
+If you do know that you have to miss tutoring for something ahead of time, you may use a planned absence. You are allowed one (1) planned absence per site. You may not use your emergency absence as a second planned absence.
+</h5>
     </div>
     <div class="form-group checkbox-group required">
       <label>Member Commitment Policy</label><br>
@@ -177,32 +181,32 @@
       <small class="form-text text-muted">Select Yes if you are a returning tutor.</small>
     </div>
   </div>
-  <div class="tab" id="return_q">
-    <div class="form-group radio-group required">
+  <div class="tab">
+    <div class="form-group radio-group required" id="jump-group3">
       <label>Prefer to work with previous student or class?</label><br>
       <input type="radio" name="question[prev_again]" value="Yes" id="Prefer_Yes">      Yes  <br>
       <input type="radio" name="question[prev_again]" value="No" id="Prefer_No">      No  <br>
       <small class="form-text text-muted">Select Yes if you want to be matched up with previous student or class.</small>
     </div>
     <div class="form-group">
-      <label for="question[preffered_student_class]">Preferred Student/Class</label>
-      <input type="text" name="question[preffered_student_class]" class="form-control">
+      <label for="question[preferred_student_class]">Preferred Student/Class</label>
+      <input type="text" name="question[preferred_student_class]" class="form-control">
       <small class="form-text text-muted">Please write down the name of the student or class.</small>
     </div>
   </div>
   <div class="tab">
     <h4>Public Service Center Volunteer Questions</h4>
-    <div class="form-group required">
+    <div class="form-group">
       <label for="question[volunteer]">PSC Q1</label>
       <input type="text" name="question[volunteer]" class="form-control" placeholder="ex. First Middle Last">
       <small class="form-text text-muted">Please enter your full name here!</small>
     </div>
-    <div class="form-group required">
+    <div class="form-group">
       <label for="question[volEmail]">PSC Q2</label>
       <input type="email" name="question[volEmail]" class="form-control" placeholder="ex. TMC@gmail.com">
       <small class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
-    <div class="form-group required">
+    <div class="form-group">
       <label for="question[sid2]">PSC Q3</label>
       <input type="text" name="question[sid2]" class="form-control" placeholder="ex. 3032179600">
       <small class="form-text text-muted">Please enter your SID here!</small>

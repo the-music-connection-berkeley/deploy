@@ -1,8 +1,40 @@
-<h1>Admin#results</h1>
-<table>
+<h1>Results</h1>
+<div class="row">
+</div>
+<div class="row mb-3">
+  <div class="my-custom-scrollbar col-md-6">
+    <table class="table table-striped table-bordered table-hover table-sm" id="table1">
+      <tr class="thead-dark">
+        <th>Tutor</th>
+        <th></th>
+        <th>Parent/Teacher</th>
+        <th></th>
+      </tr>
+
+      <% def generateResults %>
+        <% Match.all.each do |m| %>
+          <% tutor = Tutor.find(m['tutor_id']) %>
+          <% tutee = m['tutee_id'] %>
+          <% port = tutee.start_with?("p") ? Parent : Teacher %>
+          <% tutee[0] = '' %>
+          <% tutee = port.find(tutee) %>
+          <tr>
+            <td><%= tutor['name'] %></td>
+            <td><%= tutor['email'] %></td>
+            <td><%= tutee['name'] %></td>
+            <td><%= tutee['email'] %></td>
+          </tr>
+        <% end %>
+
+
+      <% end %>
+      <% generateResults() %>
+    </div>
+  </div>
+<!-- <table>
   <tr>
-    <th>Tutor   </th>
-    <th>Parent</th>
+    <th>Tutor</th>
+    <th>Tutee</th>
   </tr>
   <tr>
     <td>A</td>
@@ -16,4 +48,4 @@
     <td>E</td>
     <td>F</td>
   </tr>
-</table>
+</table> -->

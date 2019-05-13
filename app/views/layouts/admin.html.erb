@@ -11,14 +11,18 @@
 <div class="row">
   <a href='/' >
     <div class="container logo">
-        <%= image_tag "logo.png", :class => 'logo', :width=> "10%", :height => "5%" %>
+        &nbsp;
+        <%= image_tag "logo2.svg", :class => 'logo', :size => "85x85" %>
     </div>
   </a>
-  <a href="/admin"><h3>Admin Page</h3></a>
+  <a><br><h3>Admin Page</h3></a>
 </div>
 
 <div class="container">
     <%= yield %>
+    <% if flash[:notice] %>
+        <div class="alert alert-success"><%= flash[:notice] %></div>
+    <% end %>
 </div>
 </body>
 </html>

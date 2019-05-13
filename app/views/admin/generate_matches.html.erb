@@ -9,43 +9,47 @@
       <tr class="thead-dark">
         <th></th>
         <th>Name</th>
-        <th>Instrument</th>
+        <th>Instruments</th>
         <th>Time Availaibility </th>
         <th>Comments</th>
-        <th>ID</th>
       </tr>
-      <tr>
-        <td><input type="radio" name="table1" value=""></td>
-        <td>John Doe</td>
-        <td>Guitar, Piano</td>
-        <td>Monday 1:30PM ~ 5 PM </td>
-        <td>I like working with parents</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td><input type="radio" name="table1" value=""></td>
-        <td>Don Jo</td>
-        <td>Guitar, Piano</td>
-        <td>Monday 1:30PM ~ 5 PM </td>
-        <td>I like working with teachers</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td><input type="radio" name="table1" value=""></td>
-        <td>Don Jo</td>
-        <td>Guitar, Piano</td>
-        <td>Monday 1:30PM ~ 5 PM </td>
-        <td>I like working with teachers</td>
-        <td>3</td>
-      </tr>
-      <tr>
-        <td><input type="radio" name="table1" value=""></td>
-        <td>Don Jo</td>
-        <td>Guitar, Piano</td>
-        <td>Monday 1:30PM ~ 5 PM </td>
-        <td>I like working with teachers</td>
-        <td>4</td>
-      </tr>
+
+      <%def helper(time)%>
+      <%  hour = time.split(":")[0].to_i%>
+      <%  minute = time.split(":")[1]%>
+      <%  noon = hour > 12 ? "PM" : "AM"%>
+      <%  return (hour%12).to_s + ":" + minute + noon%>
+      <%end%>
+
+
+      <% def generateTable(type, tableName, filter) %>
+
+        <% if filter%>
+          <% type = type.where("comment != ''")%>
+        <% end %>
+        <% type.all.each do |tutor| %>
+          <% times = "" %>
+
+          <% tutor['availabilities'].split("&").each do |time| %>
+            <% a = Availability.find(time.to_i)%>
+            <% times += a.weekday%>
+            <% times += " "%>
+            <% times += helper(a.start_time)%>
+            <% times += "~"%>
+            <% times += helper(a.end_time)%>
+            <% times += " "%>
+          <%end%>
+
+          <tr>
+            <td><input type="radio" name=tableName value=""></td>
+            <td><%= tutor['name'] %></td>
+            <td><%= tutor['instrument'].sub("&", ", ") %></td>
+            <td><%= times %> </td>
+            <td><%= tutor['comment'] %> </td>
+          </tr>
+        <%end%>
+      <%end%>
+      <%generateTable(Tutor, "table1", true)%>
     </table>
   </div>
   <div class="my-custom-scrollbar col-md-6">
@@ -54,31 +58,16 @@
         <th></th>
         <th>Name</th>
         <th>Instrument</th>
-        <th>Time Availaibility </th>
-        <th>Comments</th>
-        <th>ID</th>
+        <th>Time Availability </th>
       </tr>
-      <tr>
-        <td><input type="radio" name="table2" value=""></td>
-        <td>John Doe</td>
-        <td>Guitar, Piano</td>
-        <td>Monday 1:30PM ~ 5 PM </td>
-        <td>I like working with parents</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td><input type="radio" name="table2" value=""></td>
-        <td>Don Jo</td>
-        <td>Guitar, Piano</td>
-        <td>Monday 1:30PM ~ 5 PM </td>
-        <td>I like working with teachers</td>
-        <td>3</td>
-      </tr>
+      <%generateTable(Parent, "table2", false)%>
+      <%generateTable(Teacher, "table2", false)%>
     </table>
   </div>
 </div>
 <button type="button" name="button" id="match_btn">Match Pair</button>
 <button type="button" name="button" id="undo_btn">Unmatch Pair</button>
 <br>
+
 <h3>Step 2. Run Algorithm </h3>
-<button type="button" name="button">Run Algorithm!</button>
+<%= button_to "MATCH!!", admin_run_algo_path, method: :main %>
