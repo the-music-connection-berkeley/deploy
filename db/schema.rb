@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190508003536) do
+ActiveRecord::Schema.define(version: 20190514024527) do
 
   create_table "availabilities", force: :cascade do |t|
     t.string "weekday"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20190508003536) do
   create_table "matches", force: :cascade do |t|
     t.string "tutor_id"
     t.string "tutee_id"
+    t.string "color"
   end
 
   create_table "parents", force: :cascade do |t|

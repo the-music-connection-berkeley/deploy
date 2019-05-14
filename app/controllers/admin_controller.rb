@@ -30,6 +30,10 @@ class AdminController < ApplicationController
     def results
     end
 
+    def getRandomColor
+      return "#" + (0..2).map{"%0x" % (rand * 0x80 + 0x80)}.join
+    end
+
     def match_pair
       response = JSON.parse(request.body.read)
       Tutor.find(response['tutor_id'][1..-1]).matched = "true";
@@ -39,10 +43,11 @@ class AdminController < ApplicationController
       else
         Teacher.find(response['client_id'][1..-1]).matched = "true";
       end
-      Match.create(:tutor_id => response['tutor_id'], :tutee_id => response['tutor_id'])
+      Match.create(:tutor_id => response['tutor_id'], :tutee_id => response['tutor_id'], :color => getRandomColor())
       puts "successfully matched!"
       render text: ""
     end
+
 
     def undo_pair
       response = JSON.parse(request.body.read)
@@ -53,7 +58,10 @@ class AdminController < ApplicationController
       else
         Teacher.find(response['client_id'][1..-1]).matched = "false";
       end
-      Match.where(:tutor_id => response['tutor_id'], :tutee_id => response['tutor_id']).destroy_all
+      result = Match.where(:tutor_id => response['tutor_id'], :tutee_id => response['tutor_id'])
+      if result
+        result.destroy_all
+      end
       puts "successfully destroyed!"
       render text: ""
     end

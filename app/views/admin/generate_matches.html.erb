@@ -14,7 +14,12 @@
         <th>Comments</th>
       </tr>
       <% @tutors.each do |tutor| %>
-        <tr>
+        <% if !Match.where(:tutor_id => "t" + tutor.id.to_s)[0].nil? %>
+          <% color = Match.where(:tutor_id => "t" + tutor.id.to_s)[0]['color'] %>
+          <%= ("<tr style=background-color:" + color + ">").html_safe %>
+        <% else %>
+          <tr>
+        <% end %>
           <td><input type="radio" name=table1 value=""></td>
           <td><%= tutor['name'] %></td>
           <td><%= tutor['instrument'].sub("&", ", ") %></td>
@@ -45,7 +50,12 @@
         <th>Comments</th>
       </tr>
       <% @parents.each do |parent| %>
-        <tr>
+        <% if !Match.where(:tutee_id => "p" + parent.id.to_s)[0].nil? %>
+          <% color = Match.where(:client_id => "p" + parent.id.to_s)[0]['color'] %>
+          <%= ("<tr style=background-color:" + color + ">").html_safe %>
+        <% else %>
+          <tr>
+        <% end %>
           <td><input type="radio" name=table2 value=""></td>
           <td><%= parent['name'] %></td>
           <td><%= parent['instrument'].sub("&", ", ") %></td>
@@ -55,7 +65,12 @@
         </tr>
       <% end %>
       <% @teachers.each do |teacher| %>
-        <tr>
+        <% if !Match.where(:tutee_id => "t" + teacher.id.to_s)[0].nil? %>
+          <% color = Match.where(:tutee_id => "t" + teacher.id.to_s)[0]['color'] %>
+          <%= ("<tr style=background-color:" + color + ">").html_safe %>
+        <% else %>
+          <tr>
+        <% end %>
           <td><input type="radio" name=table2 value=""></td>
           <td><%= teacher['name'] %></td>
           <td><%= teacher['instrument'].sub("&", ", ") %></td>
