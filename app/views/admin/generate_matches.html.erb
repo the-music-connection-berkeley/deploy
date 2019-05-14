@@ -13,43 +13,25 @@
         <th>Time Availaibility </th>
         <th>Comments</th>
       </tr>
-
-      <%def helper(time)%>
-      <%  hour = time.split(":")[0].to_i%>
-      <%  minute = time.split(":")[1]%>
-      <%  noon = hour > 12 ? "PM" : "AM"%>
-      <%  return (hour%12).to_s + ":" + minute + noon%>
-      <%end%>
-
-
-      <% def generateTable(type, tableName, filter) %>
-
-        <% if filter%>
-          <% type = type.where("comment != ''")%>
-        <% end %>
-        <% type.all.each do |tutor| %>
-          <% times = "" %>
-
-          <% tutor['availabilities'].split("&").each do |time| %>
-            <% a = Availability.find(time.to_i)%>
-            <% times += a.weekday%>
-            <% times += " "%>
-            <% times += helper(a.start_time)%>
-            <% times += "~"%>
-            <% times += helper(a.end_time)%>
-            <% times += " "%>
-          <%end%>
-
-          <tr>
-            <td><input type="radio" name=tableName value=""></td>
-            <td><%= tutor['name'] %></td>
-            <td><%= tutor['instrument'].sub("&", ", ") %></td>
-            <td><%= times %> </td>
-            <td><%= tutor['comment'] %> </td>
-          </tr>
-        <%end%>
-      <%end%>
-      <%generateTable(Tutor, "table1", true)%>
+      <% @tutors.each do |tutor| %>
+        <tr>
+          <td><input type="radio" name=table1 value=""></td>
+          <td><%= tutor['name'] %></td>
+          <td><%= tutor['instrument'].sub("&", ", ") %></td>
+          <td><%= format_time(tutor) %> </td>
+          <td>
+            <% if tutor['comment'] != ""  %>
+              <%= "- " + tutor['comment']%>
+            <% end %>
+            <% if tutor['preferred_student_class'] != ""  %>
+              <% if tutor['comment'] != "" %>
+                <br>
+              <% end %>
+              <%= "- " + tutor['preferred_student_class']%>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
     </table>
   </div>
   <div class="my-custom-scrollbar col-md-6">
@@ -57,11 +39,28 @@
       <tr class="thead-dark">
         <th></th>
         <th>Name</th>
-        <th>Instrument</th>
-        <th>Time Availability </th>
+        <th>Instruments</th>
+        <th>Time Availaibility </th>
+        <th>Comments</th>
       </tr>
-      <%generateTable(Parent, "table2", false)%>
-      <%generateTable(Teacher, "table2", false)%>
+      <% @parents.each do |parent| %>
+        <tr>
+          <td><input type="radio" name=table2 value=""></td>
+          <td><%= parent['name'] %></td>
+          <td><%= parent['instrument'].sub("&", ", ") %></td>
+          <td><%= format_time(parent) %> </td>
+          <td><%= "- " + parent['comment'] %> </td>
+        </tr>
+      <% end %>
+      <% @teachers.each do |teacher| %>
+        <tr>
+          <td><input type="radio" name=table2 value=""></td>
+          <td><%= teacher['name'] %></td>
+          <td><%= teacher['instrument'].sub("&", ", ") %></td>
+          <td><%= format_time(teacher) %> </td>
+          <td><%= "- " + teacher['comment'] %> </td>
+        </tr>
+      <% end %>
     </table>
   </div>
 </div>
