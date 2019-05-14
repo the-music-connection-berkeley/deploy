@@ -30,6 +30,7 @@
               <%= "- " + tutor['preferred_student_class']%>
             <% end %>
           </td>
+          <td style="display:none"><%= "t" + tutor['id'].to_s %></td>
         </tr>
       <% end %>
     </table>
@@ -50,6 +51,7 @@
           <td><%= parent['instrument'].sub("&", ", ") %></td>
           <td><%= format_time(parent) %> </td>
           <td><%= "- " + parent['comment'] %> </td>
+          <td style="display:none"><%= "p" + parent['id'].to_s %></td>
         </tr>
       <% end %>
       <% @teachers.each do |teacher| %>
@@ -59,6 +61,7 @@
           <td><%= teacher['instrument'].sub("&", ", ") %></td>
           <td><%= format_time(teacher) %> </td>
           <td><%= "- " + teacher['comment'] %> </td>
+          <td style="display:none"><%= "t" + teacher['id'].to_s %></td>
         </tr>
       <% end %>
     </table>

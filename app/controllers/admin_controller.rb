@@ -31,32 +31,32 @@ class AdminController < ApplicationController
     end
 
     def match_pair
-    puts JSON.parse(request.body.read)
-    # response = JSON.parse(request.body.read)
-    Tutor.get(response[tutor_id]).matched = "true";
-    client_type = resposne[client_id][0]
-    if client_type == "p"
-      Parent.get(response[client_id][1..-1]).matched = "true";
-    else
-      Teacher.get(response[client_id][1..-1]).matched = "true";
+      response = JSON.parse(request.body.read)
+      Tutor.find(response['tutor_id'][1..-1]).matched = "true";
+      client_type = response['client_id'][1..-1]
+      if client_type == "p"
+        Parent.find(response['client_id'][1..-1]).matched = "true";
+      else
+        Teacher.find(response['client_id'][1..-1]).matched = "true";
+      end
+      Match.create(:tutor_id => response['tutor_id'], :tutee_id => response['tutor_id'])
+      puts "successfully matched!"
+      render text: ""
     end
-    Match.create(:tutor_id => response[tutor_id], :tutee_id => rseponse[tutor_id])
-    render text: ""
-  end
 
-  def undo_pair
-    puts JSON.parse(request.body.read)
-    # response = JSON.parse(request.body.read)
-    Tutor.get(response[tutor_id]).matched = "false";
-    client_type = resposne[client_id][0]
-    if client_type == "p"
-      Parent.get(response[client_id][1..-1]).matched = "false";
-    else
-      Teacher.get(response[client_id][1..-1]).matched = "false";
+    def undo_pair
+      response = JSON.parse(request.body.read)
+      Tutor.find(response['tutor_id'][1..-1]).matched = "false";
+      client_type = response['client_id'][1..-1]
+      if client_type == "p"
+        Parent.find(response['client_id'][1..-1]).matched = "false";
+      else
+        Teacher.find(response['client_id'][1..-1]).matched = "false";
+      end
+      Match.where(:tutor_id => response['tutor_id'], :tutee_id => response['tutor_id']).destroy_all
+      puts "successfully destroyed!"
+      render text: ""
     end
-    Match.where(:tutor_id => response[tutor_id], :tutee_id => rseponse[tutor_id]).destroy
-    render text: ""
-  end
 
 
     def reset_database
