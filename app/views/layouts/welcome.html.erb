@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TMC</title>
+  <%= stylesheet_link_tag    'welcome', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'welcome', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-light sticky-top bg-light pt-0 pb-0">
+    <a class="navbar-brand" href='/'>
+      <div class="container">
+          <%= image_tag "logo2.svg", :class => 'logo', :size => "85x85" %>
+          <b>The Music Connection</b>
+      </div>
+    </a>
+  </nav>
+  <%= yield %>
+  <br>
+  <br>
+</body>
+</html>

@@ -2,9 +2,8 @@
 <html>
 <head>
   <title>TMC</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'index', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'forms', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'forms', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
@@ -21,5 +20,8 @@
   <%= yield %>
   <br>
   <br>
+  <script>
+    init();
+  </script>
 </body>
 </html>

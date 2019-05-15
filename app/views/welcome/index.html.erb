@@ -20,29 +20,28 @@
 
 <% if session[:form_opened] %>
 <div class="container pt-3" style="padding-bottom:12vw;">
-    <div class="row justify-content-center">
-        <h1 class='pacifico'>I'm a:</h1>
+  <div class="row justify-content-center">
+      <h1 class='pacifico'>I'm a:</h1>
+  </div>
+  <div class="row pt-3 lobster text-center">
+    <div class="col-md-4">
+        <a href="forms/teacher">
+            <%= image_tag "teacher.png", size: "200x200", alt: "Edit Entry" %>
+        </a>
+        <h5>Teacher</h5>
     </div>
-    <div class="col btn-group btn-group-justified text-center">
-        <div class="row pt-3 lobster">
-            <div class="col-md-4">
-                <a href="forms/teacher">
-                    <%= image_tag "teacher.png", size: "200x200", alt: "Edit Entry" %>
-                </a>
-                <h5>Teacher</h5>
-            </div>
-            <div class="col-md-4">
-                <a href="forms/tutor">
-                    <%= image_tag "tutor.png", size: "200x200", alt: "Edit Entry" %>
-                </a>
-                <h5 class>Tutor</h5>
-            </div>
-            <div class="col-md-4">
-                <a href="forms/parent">
-                    <%= image_tag "student.png", size: "200x200", alt: "Edit Entry" %>
-                </a>
-                <h5 class>Parent</h5>
-            </div>
-        </div>
+    <div class="col-md-4">
+        <a href="forms/tutor">
+            <%= image_tag "tutor.png", size: "200x200", alt: "Edit Entry" %>
+        </a>
+        <h5 class>Tutor</h5>
     </div>
+    <div class="col-md-4">
+        <a href="forms/parent">
+            <%= image_tag "student.png", size: "200x200", alt: "Edit Entry" %>
+        </a>
+        <h5 class>Parent</h5>
+    </div>
+  </div>
+</div>
 <% end %>
