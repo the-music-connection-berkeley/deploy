@@ -1,51 +1,47 @@
 <h1>Results</h1>
 <div class="row">
+  <h5 class="col-md-6">Tutor - Teacher</h5>
+  <h5 class="col-md-6">Tutor - Parent</h5>
 </div>
 <div class="row mb-3">
   <div class="my-custom-scrollbar col-md-6">
     <table class="table table-striped table-bordered table-hover table-sm" id="table1">
       <tr class="thead-dark">
         <th>Tutor</th>
-        <th></th>
-        <th>Parent/Teacher</th>
-        <th></th>
+        <th>Email</th>
+        <th>Teacher</th>
+        <th>Email</th>
       </tr>
-
-      <% def generateResults %>
-        <% Match.all.each do |m| %>
-          <% tutor = Tutor.find(m['tutor_id']) %>
-          <% tutee = m['tutee_id'] %>
-          <% port = tutee.start_with?("p") ? Parent : Teacher %>
-          <% tutee[0] = '' %>
-          <% tutee = port.find(tutee) %>
-          <tr>
-            <td><%= tutor['name'] %></td>
-            <td><%= tutor['email'] %></td>
-            <td><%= tutee['name'] %></td>
-            <td><%= tutee['email'] %></td>
-          </tr>
-        <% end %>
-
-
+      <% @tt_pairs.each do |pair| %>
+        <% tutor = Tutor.find(pair["tutor_id"][1..-1]) %>
+        <% teacher = Teacher.find(pair["tutee_id"][1..-1]) %>
+        <tr>
+          <td><%= tutor['name'] %></td>
+          <td><%= tutor['email'] %></td>
+          <td><%= teacher['name'] %></td>
+          <td><%= teacher['email'] %></td>
+        </tr>
       <% end %>
-      <% generateResults() %>
-    </div>
+    </table>
   </div>
-<!-- <table>
-  <tr>
-    <th>Tutor</th>
-    <th>Tutee</th>
-  </tr>
-  <tr>
-    <td>A</td>
-    <td>B</td>
-  </tr>
-  <tr>
-    <td>C</td>
-    <td>D</td>
-  </tr>
-  <tr>
-    <td>E</td>
-    <td>F</td>
-  </tr>
-</table> -->
+  <div class="my-custom-scrollbar col-md-6">
+    <table class="table table-striped table-bordered table-hover table-sm" id="table1">
+      <tr class="thead-dark">
+        <th>Tutor</th>
+        <th>Email</th>
+        <th>Parent</th>
+        <th>Email</th>
+      </tr>
+      <% @tt_pairs.each do |pair| %>
+        <% tutor = Tutor.find(pair["tutor_id"][1..-1]) %>
+        <% parent = Parent.find(pair["tutee_id"][1..-1]) %>
+        <tr>
+          <td><%= tutor['name'] %></td>
+          <td><%= tutor['email'] %></td>
+          <td><%= parent['name'] %></td>
+          <td><%= parent['email'] %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
