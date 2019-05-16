@@ -181,6 +181,7 @@ function validate_form() {
   var tab = document.getElementsByClassName("tab")[cur_tab];
   var form_groups = tab.getElementsByClassName("form-group");
   var valid = true;
+  var invalid_elems = []
   for (var i = 0; i < form_groups.length; i++) {
     var form_group = form_groups[i];
     if (!form_group.classList.contains("required")) {
@@ -191,13 +192,16 @@ function validate_form() {
       var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       if (!email) {
         form_group.getElementsByTagName("input")[0].classList.add("invalid");
+        invalid_elems += [form_group]
         form_group.getElementsByTagName("input")[0].placeholder = "Please fill out this field.";
         valid = false;
       } else if (!re.test(String(email).toLowerCase())) {
         form_group.getElementsByTagName("input")[0].classList.add("invalid");
+        invalid_elems += [form_group]
         form_group.getElementsByTagName("small")[0].innerHTML = "Please enter in a valid email."
         valid = false;
       } else {
+        invalid_elems.remove(invalid_elems.indexOf(form_group));
         form_group.getElementsByTagName("input")[0].className = form_group.getElementsByTagName("input")[0].classList.remove("invalid");
         form_group.getElementsByTagName("small")[0].innerHTML = "Please enter in your email here."
       }
@@ -210,6 +214,7 @@ function validate_form() {
         }
       }
       if (cnt == 0) {
+        invalid_elems += [form_group]
         form_group.classList.add("invalid");
         form_group.getElementsByClassName("form-text")[0].innerHTML = "Please fill out this field.";
         valid = false;
@@ -225,10 +230,12 @@ function validate_form() {
         }
       }
       if (cnt == 0) {
+        invalid_elems += [form_group]
         form_group.classList.add("invalid");
         form_group.getElementsByClassName("form-text")[0].innerHTML = "Please fill out this field.";
         valid = false;
       } else {
+        invalid_elems.remove(invalid_elems.indexOf(form_group));
         form_group.classList.remove("invalid");
       }
     } else if (form_group.classList.contains("dropdown-group")) {   // Dropdown validation
@@ -236,10 +243,12 @@ function validate_form() {
       for (var j = 0; j < elems.length; j++) {
         var elem = elems[j];
         if (elem.value == "") {
+          invalid_elems += [form_group]
           elem.classList.add("invalid");
           form_group.getElementsByClassName("form-text")[0].innerHTML = "Please fill out this field.";
           valid = false;
         } else {
+          invalid_elems.remove(invalid_elems.indexOf(form_group));
           elem.classList.remove("invalid");
         }
       }
@@ -248,11 +257,13 @@ function validate_form() {
       if (input.value == "") {
         // add an "invalid" class to the field:
         if (!input.classList.contains("invalid")) {
+          invalid_elems += [form_group]
           input.classList.add("invalid");
         }
         input.placeholder = "Please fill out this field.";
         valid = false;
       } else {
+        invalid_elems.remove(invalid_elems.indexOf(form_group));
         input.classList.remove("invalid");
       }
     }
